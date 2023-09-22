@@ -5,14 +5,16 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <nav>
       <div id="titulo">
-        <h1>BA3</h1>
+        <img src="https://o.remove.bg/downloads/e791eae8-a532-4e94-9b0b-fcef96e34f67/image-removebg-preview.png" alt="">
       </div>
       <div id="barra-nav">
-        <div id="test">a</div>
+        <input type="text" v-model="nome" id="barra-pesquisa" placeholder="Pesquisa" />
         <button>
-          <p>🔍</p>
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/009/876/398/original/realistic-magnifying-glass-clip-art-free-png.png"
+            alt="">
+        </button>
           <div id="topicos">
             <div id="categorias">
 
@@ -21,7 +23,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
             </div>
           </div>
-        </button>
       </div>
       <div id="login">
         <RouterLink to="/">
@@ -30,8 +31,18 @@ import HelloWorld from './components/HelloWorld.vue'
             alt="">
         </RouterLink>
       </div>
-    </nav>
   </header>
+
+  <footer>
+    <div id="redes-sociais">
+      <img src="https://static.vecteezy.com/system/resources/previews/018/819/295/original/whatsapp-icon-transparent-free-png.png" alt="">
+      <img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" alt="">
+      <img class="facebook" src="https://imagepng.org/facebook-icone/facebook-icone-icon/" alt="">
+      <img src="https://freepngimg.com/thumb/gmail/66572-google-icons-computer-logo-email-gmail.png" alt="">
+    </div>
+    <div id="navegacoes"></div>
+    <div id="info-conta"></div>
+  </footer>
 </template>
 
 <style scoped>
@@ -40,15 +51,15 @@ import HelloWorld from './components/HelloWorld.vue'
   margin: 0;
 }
 
-nav {
+header {
   display: flex;
   justify-content: space-between;
   background-color: black;
   padding: 10px;
 }
 
-#titulo {
-  font-size: 30px;
+#titulo img {
+  width: 100px;
   text-decoration: none;
   color: white;
 }
@@ -59,22 +70,60 @@ nav {
   border: 3px solid white;
 }
 
-#barra-nav button p{
-  font-size: 50px;
-  background-color: black;
+#login{
+  margin-top: 20px;
 }
-#barra-nav button{
-  background-color: black;
-}
-#barra-nav{
+
+#barra-nav {
   display: flex;
-  justify-content: space-around;
-  background-color: grey;
-  width: 50px;
-  height: 10px;
+  justify-content: flex-end;
+  
 }
-#test{
-  width: 100px;
-  background-color: white;
+
+#barra-nav img {
+  width: 30px;
+  margin: 0px 10px 0px 5px;
+}
+
+#barra-nav button {
+  background-color: rgba(255, 252, 252, 0.493);
+  text-decoration: none;
+  border-radius: 0px 30px 30px 0px;
+  border: none;
+  width: 43px;
+  height: 45px;
+  margin-top: 20px;
+  box-shadow: 1px 7px 3px rgba(180, 180, 180, 0.671);
+}
+
+#barra-pesquisa{
+  width: 600px;
+  height: 45px;
+  border-radius: 30px 0px 0px 30px;
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  font-size: 22px;
+  padding: 0px 15px;
+  box-shadow: 1px 7px 3px rgba(180, 180, 180, 0.671);
+}
+
+
+
+
+
+
+
+
+
+
+footer{
+  background-color: black;
+}
+.facebook{
+  border-radius: 7px 7px 7px 7px;
+}
+
+#redes-sociais img{
+  width: 30px;
 }
 </style>
