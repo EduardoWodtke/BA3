@@ -85,7 +85,7 @@ const ativo = ref(false)
     </div>
     <div id="ba3">
       <div>
-        <p>© Crunchyroll, LLC</p>
+        <p>©BetterAnime3, LLF</p>
       </div>
     </div>
   </footer>
@@ -101,7 +101,7 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: black;
-  padding: 10px;
+  padding: 20px;
   position: sticky;
 }
 
@@ -169,7 +169,7 @@ header {
   border-top: 1px solid white;
   display: flex;
   justify-content: center;
-  
+  font-size: 20px;
 }
 
 #footer {
