@@ -1,0 +1,89 @@
+<script setup>
+
+</script>
+
+<template>
+  <footer>
+    <div id="footer">
+      <div id="redes-sociais">
+        <h1>contate-nos</h1>
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/018/819/295/original/whatsapp-icon-transparent-free-png.png"
+          alt="" />
+        <img
+          src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png"
+          alt="" />
+        <img style="width: 41px" src="https://freepngimg.com/thumb/gmail/66572-google-icons-computer-logo-email-gmail.png"
+          alt="" />
+      </div>
+
+      <div id="navegacoes">
+        <h1>navegações</h1>
+        <p>Populares</p>
+        <p>Recentes</p>
+        <p>Noticias</p>
+      </div>
+
+      <div id="info-conta">
+        <h1>Conta</h1>
+        <p>Login</p>
+        <p>Cadastre-se</p>
+      </div>
+
+      <div id="termos">
+        <img src="https://o.remove.bg/downloads/e791eae8-a532-4e94-9b0b-fcef96e34f67/image-removebg-preview.png" alt="" />
+        <p>Termos de uso</p>
+        <p>Politica de privacidade</p>
+        <p>cookies</p>
+        <p>Ajuda</p>
+      </div>
+    </div>
+    <div id="ba3">
+      <div>
+        <p>©BetterAnime3, LLF</p>
+      </div>
+    </div>
+  </footer>
+</template>
+<style scoped>
+#ba3 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#ba3 div {
+  width: 50%;
+  border-top: 1px solid white;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+footer {
+  background: rgb(1, 66, 255);
+  background: linear-gradient(0deg,
+      rgba(1, 66, 255, 1) 2%,
+      rgba(15, 15, 119, 1) 49%,
+      rgba(0, 0, 0, 1) 100%);
+  color: white;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+#termos img {
+  width: 100px;
+}
+
+#redes-sociais img {
+  width: 40px;
+  margin: 0px 14px 9px 0px;
+}
+</style>
