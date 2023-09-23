@@ -28,18 +28,19 @@
 header {
   display: flex;
   justify-content: space-between;
-  background-color: black;
-  padding: 20px;
-  position: sticky;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  top: 0;
+  margin-left: 75px;
 }
 
 #titulo img {
-  margin-left: 30px;
+  margin-right: 45vh;
   width: 100px;
 }
 
 #login img {
-  width: 60px;
+  width: 70px;
   border-radius: 60px;
   border: 3px solid rgb(25, 0, 255);
   margin-right: 30px;
@@ -52,6 +53,7 @@ header {
 #barra-nav {
   display: flex;
   justify-content: flex-end;
+  margin-right: 50vh;
 }
 
 #barra-nav img {

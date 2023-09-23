@@ -6,7 +6,7 @@
   <footer>
     <div id="footer">
       <div id="redes-sociais">
-        <h1>contate-nos</h1>
+        <h1>Contate-nos</h1>
         <img
           src="https://static.vecteezy.com/system/resources/previews/018/819/295/original/whatsapp-icon-transparent-free-png.png"
           alt="" />
@@ -34,7 +34,7 @@
         <img src="https://o.remove.bg/downloads/e791eae8-a532-4e94-9b0b-fcef96e34f67/image-removebg-preview.png" alt="" />
         <p>Termos de uso</p>
         <p>Politica de privacidade</p>
-        <p>cookies</p>
+        <p>Cookies</p>
         <p>Ajuda</p>
       </div>
     </div>
