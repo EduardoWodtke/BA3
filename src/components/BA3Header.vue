@@ -35,7 +35,7 @@ header {
 }
 
 #titulo img {
-  margin-right: 45vh;
+  margin: 0px 42vh 0px 3vh;
   width: 100px;
 }
 
@@ -53,7 +53,7 @@ header {
 #barra-nav {
   display: flex;
   justify-content: flex-end;
-  margin-right: 50vh;
+  margin-right: 42vh;
 }
 
 #barra-nav img {

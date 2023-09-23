@@ -31,8 +31,7 @@
       </div>
 
       <div id="termos">
-        <img src="https://o.remove.bg/downloads/e791eae8-a532-4e94-9b0b-fcef96e34f67/image-removebg-preview.png" alt="" />
-        <p>Termos de uso</p>
+        <h1>Termos de uso</h1>
         <p>Politica de privacidade</p>
         <p>Cookies</p>
         <p>Ajuda</p>
@@ -64,6 +63,8 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
+  height: 20vh;
+  padding-top:7vh ;
 }
 
 footer {
@@ -74,12 +75,8 @@ footer {
       rgba(0, 0, 0, 1) 100%);
   color: white;
   bottom: 0;
-  position: fixed;
+  position:absolute;
   width: 100%;
-}
-
-#termos img {
-  width: 100px;
 }
 
 #redes-sociais img {

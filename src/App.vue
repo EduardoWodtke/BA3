@@ -8,9 +8,20 @@ const ativo = ref(false)
 </script>
 
 <template>
-  <headerBA/>
+  <headerBA />
   <nav>
     <div id="conteiner">
+      <div class="barra-lateral">
+        <div class="barra teto">
+
+        </div>
+        <div class="barra">
+
+        </div>
+        <div class="barra baixo">
+
+        </div>
+      </div>
       <div>
         <img src="./assets/populares.png" alt="">
       </div>
@@ -23,7 +34,7 @@ const ativo = ref(false)
     <h1>
     </h1>
   </main>
- <footerBA />
+  <footerBA />
 </template>
 
 <style scoped>
@@ -32,21 +43,33 @@ const ativo = ref(false)
   margin: 0;
 }
 
+.barra{
+  width: 5vh;
+  border-bottom: 4px solid white;
+  padding: 0.7vh;
+} 
 
+.teto{
+  margin-top: 1.5vh;
+}
 
-#conteiner{
-  display: flex; 
+.baixo{
+  margin-bottom: 5vh;
+}
+
+#conteiner {
+  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(0, 0, 0);
   width: 4%;
   height: 100vh;
   overflow: hidden;
-  border-right: 1px solid rgba(255, 255, 255, 0.568);
+  border-right: 1px solid rgb(65, 65, 65);
 }
 
-#conteiner img{
-  width: 60px;
-  margin: 10px;
+#conteiner img {
+  width: 6vh;
+  margin: 1vh;
 }
 </style>
