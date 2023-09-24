@@ -1,17 +1,26 @@
 <script setup>
+import { ref } from 'vue';
+
+const mostrarCategorias = ref(false);
+
+const mostrarCategoriasHandler = () => {
+  mostrarCategorias.value = !mostrarCategorias.value;
+};
+
+
 </script>
 
 <template>
-  <header @submit.prevent="ativo = !ativo">
+  <header>
     <div id="titulo">
       <img src="../assets/BA3Lgo.png" alt="" />
     </div>
-    <div id="barra-nav">
+    <div id="barra-nav" style="display: flex; justify-content: space-between;">
       <input type="text" v-model="nome" id="barra-pesquisa" placeholder="Pesquisar" />
-      <button>
+      <button @click="mostrarCategoriasHandler()">
         <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
       </button>
-      <div id="topicos" v-if="ativo">
+      <div id="topicos" style="margin-top: 10px;" v-if="mostrarCategorias">
         <div id="categorias"></div>
         <div id="sugestoes"></div>
       </div>
@@ -21,7 +30,9 @@
         <img src="../assets/perfil.jpg" alt="" />
       </RouterLink>
     </div>
+    
   </header>
+  
 </template>
 
 <style scoped>
@@ -32,6 +43,13 @@ header {
   position: absolute;
   top: 0;
   margin-left: 75px;
+}
+
+#topicos{
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  width: 20vh;
 }
 
 #titulo img {
@@ -52,7 +70,7 @@ header {
 
 #barra-nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-right: 42vh;
 }
 
@@ -84,6 +102,5 @@ header {
   background-color: rgb(255, 255, 255);
   font-size: 22px;
   padding: 0px 15px;
-  border: 2px solid white;
 }
 </style>

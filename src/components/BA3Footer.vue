@@ -53,18 +53,18 @@
 
 #ba3 div {
   width: 50%;
-  border-top: 1px solid white;
+  border-top: 0.3vh solid white;
   display: flex;
   justify-content: center;
-  font-size: 20px;
+  font-size: 2vh;
 }
 
 #footer {
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
-  height: 20vh;
-  padding-top:7vh ;
+  height: 25vh;
+  padding-top:8vh ;
 }
 
 footer {
@@ -74,13 +74,11 @@ footer {
       rgba(15, 15, 119, 1) 49%,
       rgba(0, 0, 0, 1) 100%);
   color: white;
-  bottom: 0;
-  position:absolute;
   width: 100%;
 }
 
 #redes-sociais img {
-  width: 40px;
+  width: 4.3vh;
   margin: 0px 14px 9px 0px;
 }
 </style>
