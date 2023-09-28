@@ -6,8 +6,6 @@ const mostrarCategorias = ref(false);
 const mostrarCategoriasHandler = () => {
   mostrarCategorias.value = !mostrarCategorias.value;
 };
-
-
 </script>
 
 <template>
@@ -55,8 +53,8 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: rgb(0, 0, 0);
-  position: absolute;
-  top: 0;
+  /*position: absolute;
+  top: 0;*/
   margin-left: 75px;
 }
 
