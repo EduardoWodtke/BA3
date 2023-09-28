@@ -10,14 +10,14 @@ const ativo = ref(false)
 
 <template>
   <headerBA />
-  <navBA/>
+  <navBA />
   <main>
-    
-    <div id="main">
-      <div id="imagem-estatica">
-        <h1>1</h1>
-        <p>2</p>
-      </div>
+    <div id="imagem-estatica">
+      <h1>Seja Bem vindo</h1>
+      <h2>Deixe rirem do seus sonhos!</h2>
+    </div>
+    <div id="recomendados">
+      <h1>2</h1>
     </div>
   </main>
   <footerBA />
@@ -29,16 +29,26 @@ const ativo = ref(false)
   margin: 0;
 }
 
-#main{
+main {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-} 
-
-#imagem-estatica{
-  display: flex;
-  background-color: blue;
-  width: 20vh;
-  
+  margin: 1% 0 0 4%;
 }
 
+#imagem-estatica {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(5, 5, 139, 0.671);
+  padding: 15vh 0 0 10vh;
+  width: 100%;
+  height: 30rem;
+  font-size: 2.5vh;
+}
+
+#recomendados{
+  margin-top: 5vh;
+  background-color: rgb(255, 0, 0);
+  height: 50vh;
+}
 </style>

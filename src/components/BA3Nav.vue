@@ -5,9 +5,8 @@
 <template>
   <nav>
     <div id="conteiner">
-      <div class="barra-lateral">
-        <img src="https://th.bing.com/th/id/R.934617f9c22f381a368599c0278ee40e?rik=sVikYQKgDHPmLA&riu=http%3a%2f%2fyouthaliveportal.org%2fimages%2flayout%2fmob-menu-icon.png&ehk=PIpJwqMp%2fLLVJgyBFX2%2f0wbhdmsiQ1zzZ7ZiPOofx6k%3d&risl=&pid=ImgRaw&r=0" alt="">    
-        <!-- <div class="barra teto">
+      <div class="barra-lateral">    
+        <div class="barra teto">
 
         </div>
         <div class="barra">
@@ -15,7 +14,7 @@
         </div>
         <div class="barra baixo">
 
-        </div> -->
+        </div>
       </div>
       <div>
         <img src="../assets/populares.png" alt="">
@@ -47,8 +46,9 @@ nav{
 }
 .barra{
   width: 5vh;
-  border-bottom: 4px solid white;
+  border-bottom: 5px solid white;
   padding: 0.7vh;
+  border-radius: 3px;
 } 
 
 .teto{
@@ -63,11 +63,11 @@ nav{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(0, 0, 0);
-  
-  height: 100vh;
+  background-color: rgb(0, 0, 0); 
+  height: 100%;
   overflow: hidden;
-  border-right: 1px solid rgb(65, 65, 65);
+  /* border-right: 2px solid rgb(65, 65, 65);
+ */
 }
 
 #conteiner img {
