@@ -1,11 +1,29 @@
 <script setup>
-import { ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
 import headerBA from './components/BA3Header.vue'
 import footerBA from './components/BA3Footer.vue'
 import navBA from './components/BA3Nav.vue'
 
-const ativo = ref(false)
+import { ref, onMounted } from 'vue'
+import api from '@/plugins/axios'
+
+const genres = ref([])
+
+const movies = ref([])
+
+const listMovies = async (genreId) => {
+  const response = await api.get('discover/movie', {
+    params: {
+      with_genres: genreId,
+      language: 'pt-BR'
+    }
+  })
+  movies.value = response.data.results
+}
+
+onMounted(async () => {
+  const response = await api.get('genre/movie/list?language=pt-BR')
+  genres.value = response.data.genres
+})
 </script>
 
 <template>
@@ -17,7 +35,18 @@ const ativo = ref(false)
       <h2>Deixe rirem do seus sonhos!</h2>
     </div>
     <div id="recomendados">
-      <h1>2</h1>
+      <h1>Populares</h1>
+      <div class="movie-list">
+    <div v-for="movie in movies" :key="movie.id" class="movie-card">
+      <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
+      <div class="movie-details">
+        <p class="movie-title">{{ movie.title }}</p>
+        <p class="movie-release-date">{{ movie.release_date }}</p>
+        <p class="movie-genres">{{ movie.genre_ids }}</p>
+      </div>
+    </div>
+  </div>
+
     </div>
   </main>
   <footerBA />

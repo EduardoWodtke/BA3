@@ -20,13 +20,13 @@
         <img src="../assets/populares.png" alt="">
       </div>
       <div>
-        <img src="../assets/lancados.png" alt="">
+        <img src="../assets/cadeira.png" alt="">
       </div>
       <div>
-        <img src="" alt="favoritos">
+        <img src="../assets/coracao.png" alt="favoritos">
       </div>
       <div>
-        <img src="https://o.remove.bg/downloads/ad13a6c7-ace5-45b8-aaf8-d8e40f39820c/OIP-removebg-preview.png" alt="assitri mais tarde">
+        <img src="../assets/relogio.png" alt="assitri mais tarde">
       </div>
       <div>
         <img src="../assets/R.png" alt="">
