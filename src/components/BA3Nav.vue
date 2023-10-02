@@ -29,7 +29,7 @@
         <img src="../assets/relogio.png" alt="assitri mais tarde">
       </div>
       <div>
-        <img src="../assets/R.png" alt="">
+        <img src="../assets/foguete.png" alt="">
       </div>
     </div>
   </nav>
@@ -54,7 +54,7 @@ nav{
 }
 
 .baixo{
-  margin-bottom: 5vh;
+  margin-bottom: 6vh;
 }
 
 #conteiner {
@@ -65,11 +65,11 @@ nav{
   height: 100%;
   overflow: hidden;
   /*border-right: 2px solid rgb(65, 65, 65);*/
- 
+
 }
 
 #conteiner img {
-  width: 6vh;
-  margin: 1vh;
+  margin: 2.5vh;
+  width: 4vh;
 }
 </style>
