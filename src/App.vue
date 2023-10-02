@@ -20,6 +20,7 @@ const listMovies = async (genreId) => {
   movies.value = response.data.results
 }
 
+
 onMounted(async () => {
   const response = await api.get('genre/movie/list?language=pt-BR')
   genres.value = response.data.genres
@@ -68,11 +69,12 @@ main {
 #imagem-estatica {
   display: flex;
   flex-direction: column;
-  background-color: rgba(5, 5, 139, 0.671);
   padding: 15vh 0 0 10vh;
   width: 100%;
   height: 30rem;
   font-size: 2.5vh;
+  background: rgb(1,66,255);
+background: linear-gradient(278deg, rgba(1,66,255,1) 2%, rgba(15,15,119,0.6306897759103641) 49%, rgba(0,0,0,1) 100%);
 }
 
 #populares{

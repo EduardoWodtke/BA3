@@ -37,7 +37,7 @@ const mostrarCategoriasHandler = () => {
         <img src="../assets/perfil.jpg" alt="" />
       </RouterLink>
     </div>
-    
+   
   </header>
   
 </template>

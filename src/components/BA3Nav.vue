@@ -17,19 +17,19 @@
         </div>
       </div>
       <div>
-        <img src="../assets/populares.png" alt="">
-      </div>
-      <div>
-        <img src="../assets/cadeira.png" alt="">
+       <img src="../assets/populares.png" alt="populares">
       </div>
       <div>
         <img src="../assets/coracao.png" alt="favoritos">
       </div>
       <div>
-        <img src="../assets/relogio.png" alt="assitri mais tarde">
+        <img src="../assets/cadeira.png" alt="lançamentos">
       </div>
       <div>
-        <img src="../assets/foguete.png" alt="">
+        <img src="../assets/foguete.png" alt="futuros-lançamentos">
+      </div>
+      <div>
+        <img src="../assets/relogio.png" alt="assitri mais tarde">
       </div>
     </div>
   </nav>
