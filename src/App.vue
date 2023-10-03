@@ -1,30 +1,29 @@
 <script setup>
-import headerBA from './components/BA3Header.vue'
-import footerBA from './components/BA3Footer.vue'
-import navBA from './components/BA3Nav.vue'
+import headerBA from "./components/BA3Header.vue";
+import footerBA from "./components/BA3Footer.vue";
+import navBA from "./components/BA3Nav.vue";
 
-import { ref, onMounted } from 'vue'
-import api from '@/plugins/axios'
+// import { ref, onMounted } from "vue";
+// import api from "@/plugins/axios";
 
-const genres = ref([])
+// const genres = ref([]);
 
-const movies = ref([])
+// const movies = ref([]);
 
-const listMovies = async (genreId) => {
-  const response = await api.get('discover/movie', {
-    params: {
-      with_genres: genreId,
-      language: 'pt-BR'
-    }
-  })
-  movies.value = response.data.results
-}
+// const listMovies = async (genreId) => {
+//   const response = await api.get("discover/movie", {
+//     params: {
+//       with_genres: genreId,
+//       language: "pt-BR",
+//     },
+//   });
+//   movies.value = response.data.results;
+// };
 
-
-onMounted(async () => {
-  const response = await api.get('genre/movie/list?language=pt-BR')
-  genres.value = response.data.genres
-})
+// onMounted(async () => {
+//   const response = await api.get("genre/movie/list?language=pt-BR");
+//   genres.value = response.data.genres;
+// });
 </script>
 
 <template>
@@ -38,16 +37,18 @@ onMounted(async () => {
     <div id="populares">
       <h1>Populares</h1>
       <div class="movie-list">
-    <div v-for="movie in movies" :key="movie.id" class="movie-card">
-      <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-      <div class="movie-details">
-        <p class="movie-title">{{ movie.title }}</p>
-        <p class="movie-release-date">{{ movie.release_date }}</p>
-        <p class="movie-genres">{{ movie.genre_ids }}</p>
+        <div v-for="movie in movies" :key="movie.id" class="movie-card">
+          <img
+            :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
+            :alt="movie.title"
+          />
+          <div class="movie-details">
+            <p class="movie-title">{{ movie.title }}</p>
+            <p class="movie-release-date">{{ movie.release_date }}</p>
+            <p class="movie-genres">{{ movie.genre_ids }}</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
     </div>
   </main>
   <footerBA />
@@ -70,17 +71,32 @@ main {
   display: flex;
   flex-direction: column;
   padding: 15vh 0 0 10vh;
-  width: 100%;
   height: 30rem;
   font-size: 2.5vh;
-  background: rgb(1,66,255);
-background: linear-gradient(278deg, rgba(1,66,255,1) 2%, rgba(15,15,119,0.6306897759103641) 49%, rgba(0,0,0,1) 100%);
+  background: rgb(1, 66, 255);
+  background: linear-gradient(
+    278deg,
+    rgba(1, 66, 255, 1) 2%,
+    rgba(15, 15, 119, 0.6306897759103641) 49%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
-#populares{
-  margin-top: 5vh;
-  background-color: rgb(255, 0, 0);
-  height: 50vh;
+#populares {
+  display: flex;
+  flex-direction: column;
+  padding: 15vh 0 0 10vh;
+
+  height: 30rem;
+  font-size: 2.5vh;
+  margin-top: 20vh;
+  background: rgb(255, 1, 1);
+  background: linear-gradient(
+    278deg,
+    rgb(255, 1, 1) 2%,
+    rgba(119, 15, 15, 0.631) 49%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .genre-item {

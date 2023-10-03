@@ -62,9 +62,8 @@
 #footer {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
-  height: 25vh;
-  padding-top:8vh ;
+  height: 32vh;
+  padding-top:12vh ;
 }
 
 footer {
