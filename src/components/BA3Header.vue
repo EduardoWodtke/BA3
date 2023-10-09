@@ -51,28 +51,29 @@ const mostrarCategoriasHandler = () => {
 }
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: rgb(0, 0, 0);
-  /*position: absolute;
-  top: 0;*/
-  margin-left: 75px;
+  position:sticky;
+  top: 0%;
+  padding-top: 1vh;
 }
 
 #topicos{
   display: flex;
-  /* flex-direction: column; */
   flex-direction: row;
-  background-color: blue;
-  /* width: 20vh; */
+  background: rgba(0, 0, 0, 0.945);
   justify-content: space-around;
-  border-radius: 5px;
-  /* padding: 10px; */
-  border: 2px solid white;
-  box-shadow: 5px 5px 20px 2px rgb(77, 76, 76);
+  border-radius: 20px;
+  position: absolute;
+  top: 80%;
+  right: 0;
+  height: 30vh;
+  width: 95%;
+  color: rgb(90, 71, 255);
+  font-size: 2vh;
 }
 
 #titulo img {
-  margin: 0px 42vh 0px 3vh;
   width: 100px;
 }
 
@@ -80,7 +81,6 @@ header {
   width: 70px;
   border-radius: 60px;
   border: 3px solid rgb(25, 0, 255);
-  margin-right: 30px;
 }
 
 #login {
@@ -90,7 +90,6 @@ header {
 #barra-nav {
   display: flex;
   justify-content: space-between;
-  margin-right: 42vh;
 }
 
 #barra-nav img {
@@ -109,7 +108,7 @@ header {
 }
 
 #barra-nav button:hover {
-  background-color: rgb(49, 0, 139);
+  background-color: rgb(255, 255, 255);
   transition: 2s;
 }
 
