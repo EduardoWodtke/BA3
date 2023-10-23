@@ -36,8 +36,12 @@ const clickHamburguer = () => {
         <img src="../assets/relogio.png" alt="assitri mais tarde" />
       </div>
       <div class="desc" v-if="mostrarDesc">
+        <div @click="clickHamburguer()">
+          <div class="x"></div>
+        </div>
         <div>
-          <img src="../assets/populares.png" alt="populares" />
+          
+          <p>aaaaaaa</p>
         </div>
         <div>
         <img src="../assets/coracao.png" alt="favoritos" />
@@ -51,10 +55,7 @@ const clickHamburguer = () => {
       <div>
         <img src="../assets/relogio.png" alt="assitri mais tarde" />
       </div>
-        <div @click="clickHamburguer()">
-          <div class="x"></div>
-        </div>
-      
+     
       </div>
     </div>
   </nav>
