@@ -6,6 +6,12 @@ const mostrarCategorias = ref(false);
 const mostrarCategoriasHandler = () => {
   mostrarCategorias.value = !mostrarCategorias.value;
 };
+
+const mostrarOpLogin = ref(false);
+
+const mostrarOp = () => {
+  mostrarOpLogin.value = !mostrarOpLogin.value;
+};
 </script>
 
 <template>
@@ -33,32 +39,44 @@ const mostrarCategoriasHandler = () => {
       </div>
     </div>
     <div id="login">
-      <RouterLink to="/">
+      <button @click="mostrarOp()">
         <img src="../assets/perfil.jpg" alt="" />
-      </RouterLink>
+      </button>
+      <div class="opLogin" v-if="mostrarOpLogin">
+        <p>Editar perfil</p>
+        <p>Conta</p>
+        <p>Ajuda</p>
+        <p>Sair</p>
+      </div>
     </div>
-   
   </header>
-  
 </template>
 
 <style scoped>
-#categorias{
+#categorias {
   padding: 5px 10px 10px 10px
 }
-#sugestoes{
+
+button{
+  background-color: black;
+  border: none;
+  cursor:pointer;
+}
+
+#sugestoes {
   padding: 5px 10px 10px 10px
 }
+
 header {
   display: flex;
   justify-content: space-around;
   background-color: rgb(0, 0, 0);
-  position:sticky;
+  position: sticky;
   top: 0%;
   padding-top: 1vh;
 }
 
-#topicos{
+#topicos {
   display: flex;
   flex-direction: row;
   background: rgba(0, 0, 0, 0.945);
@@ -71,6 +89,7 @@ header {
   width: 95%;
   color: rgb(90, 71, 255);
   font-size: 2vh;
+  box-shadow: 10px 0px 12px rgb(0, 0, 0);
 }
 
 #titulo img {
@@ -108,7 +127,7 @@ header {
 }
 
 #barra-nav button:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 119, 255);
   transition: 2s;
 }
 
@@ -120,5 +139,20 @@ header {
   background-color: rgb(255, 255, 255);
   font-size: 22px;
   padding: 0px 15px;
+}
+
+.opLogin {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 14.5vh;
+  background-color: rgb(28, 18, 161);
+  padding: 10px;
+  width: 14vh;
+  height: 16vh;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 30px 0px 30px 0px;
+  box-shadow: 4px 4px 10px rgb(0, 0, 0);
 }
 </style>
