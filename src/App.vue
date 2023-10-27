@@ -29,7 +29,6 @@ onMounted(async () => {
   const response = await api.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc');
   movies.value = response.data.results
 })
-/*console.log(response);*/
 </script>
 
 <template>
@@ -42,49 +41,12 @@ onMounted(async () => {
     </div>
     <div class="Populares">
       <h1>Populares,</h1>
-      <p>Apenas os melhores!</p>
+      <h1>Apenas os melhores!</h1>
       <div id="popularesCartaz">
-
-
-
-
-        <div class="movie-list">
-  <div v-for="movie in movies" :key="movie.id" class="movie-card">
-    
-    <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-    <div class="movie-details">
-      <p class="movie-title">{{ movie.title }}</p>
-      <p class="movie-release-date">{{ movie.release_date }}</p>
-      <p class="movie-genres">{{ movie.genre_ids }}</p>
-    </div>
-    
-  </div>
-</div>
-
-
-
-
-  <div class="movie-list">
-  <div v-for="movie in movies" :key="movie.id" class="movie-card">
-    
-    <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-    <div class="movie-details">
-      <p class="movie-title">{{ movie.title }}</p>
-      <p class="movie-release-date">{{ movie.release_date }}</p>
-      <p class="movie-genres">{{ movie.genre_ids }}</p>
-    </div>
-    
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
+        <div v-for="movie in movies" :key="movie.id" class="cartazDeMovie">
+          <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
+          <p class="tituloDeMovie">{{ movie.title }}</p>
+        </div>
       </div>
     </div>
   </main>
@@ -94,6 +56,7 @@ onMounted(async () => {
 * {
   padding: 0;
   margin: 0;
+  /* overflow: hidden; */
 }
 
 main {
@@ -117,75 +80,46 @@ main {
       rgba(0, 0, 0, 1) 100%);
 }
 
-
-
 #popularesCartaz {
   display: flex;
-  flex-direction: column;
-  padding: 15vh 0 0 10vh;
+  flex-direction: row;
   height: 30rem;
-  font-size: 2.5vh;
-  background: rgb(255, 1, 1);
+  background: rgb(255, 0, 0);
   background: linear-gradient(278deg,
       rgb(255, 1, 1) 2%,
       rgba(119, 15, 15, 0.631) 49%,
       rgba(0, 0, 0, 1) 100%);
+  overflow-x: scroll;  
 }
 
-.genre-item {
-  background-color: #5d6424;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  align-self: center;
-  color: #fff;
-  display: flex;
-  justify-content: center;
+#popularesCartaz::-webkit-scrollbar {
+  width: .5em;
+  height: .4em;
+}
+ 
+#popularesCartaz::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+#popularesCartaz::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 7, 105);
+  outline: 1px solid rgb(54, 54, 61);
 }
 
-.genre-item:hover {
-  cursor: pointer;
-  background-color: #7d8a2e;
-  box-shadow: 0 0 0.5rem #5d6424;
+.cartazDeMovie {
+  width: 400px;
 }
 
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+.cartazDeMovie img {
+  margin: 0 .4vw;  
+  height: 400px;
+  
 }
 
-.movie-card {
-  width: 15rem;
-  height: 30rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 0 0.5rem #000;
-}
 
-.movie-card img {
-  width: 100%;
-  height: 20rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem #000;
-}
 
-.movie-details {
-  padding: 0 0.5rem;
-}
-
-.movie-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  line-height: 1.3rem;
-  height: 3.2rem;
-}
-
-.Populares h1{
-  font-size: 50px;
-}
-
-.Populares p{
-  padding: 0 0 0 3vh;
-  font-size: 30px;
+.Populares p {
+  font-size: 20px;
+  text-align: center;
 }
 </style>
