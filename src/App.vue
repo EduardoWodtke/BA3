@@ -4,26 +4,8 @@ import footerBA from "./components/BA3Footer.vue";
 import navBA from "./components/BA3Nav.vue";
 import { ref, onMounted } from "vue";
 import api from "@/plugins/axios";
-/*
-const response = await api.get('discover/movie', {
-    params: {
-        with_genres: 1,
-        language: 'pt-BR'
-    }
-});
-movies.value = response.data.results
-console.log(movies.value)*/
 
-
-
-const genres = ref([])
 const movies = ref([])
-/*
-onMounted(async () => {
-  const response = await api.get('genre/movie/list?language=pt-BR')
-  genres.value = response.data.genres
-  movies.value = response.data.genres
-})*/
 
 onMounted(async () => {
   const response = await api.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc');
@@ -41,7 +23,7 @@ onMounted(async () => {
     </div>
     <div class="Populares">
       <h1>Populares,</h1>
-      <h1>Apenas os melhores!</h1>
+      <h2>Apenas os melhores!</h2>
       <div id="popularesCartaz">
         <div v-for="movie in movies" :key="movie.id" class="cartazDeMovie">
           <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
@@ -90,6 +72,7 @@ main {
       rgba(119, 15, 15, 0.631) 49%,
       rgba(0, 0, 0, 1) 100%);
   overflow-x: scroll;  
+  padding: 2vh;
 }
 
 #popularesCartaz::-webkit-scrollbar {
@@ -106,17 +89,20 @@ main {
   outline: 1px solid rgb(54, 54, 61);
 }
 
-.cartazDeMovie {
-  width: 400px;
-}
-
 .cartazDeMovie img {
   margin: 0 .4vw;  
-  height: 400px;
-  
+  height: 380px;
+
 }
 
+.Populares h1{
+  font-size: 45px;
+}
 
+.Populares h2{
+  font-size: 30px;
+  padding: 1vh;
+}
 
 .Populares p {
   font-size: 20px;

@@ -7,81 +7,94 @@ const clickHamburguer = () => {
   mostrarDesc.value = !mostrarDesc.value
 }
 
-// const clickHamburguerF = () => {
-//   mostrarDesc.value = !mostrarDesc.value
-// }
+
 </script>
 
 <template>
   <nav>
-    <div id="conteiner">
-      <button @click="clickHamburguer()" class="barra-lateral">
-        <div class="barra teto"></div>
-        <div class="barra"></div>
-        <div class="barra baixo"></div>
-      </button>
-      <div>
-        <img src="../assets/populares.png" alt="populares" />
+    <div id="conteiner" :class="mostrarDesc ? 'large' : 'small'">
+      <div v-if="mostrarDesc" @click="clickHamburguer()" class="barTitle">
+        <img src="../assets/BA3Lgo.png" alt="" />
+        <button>X</button>
       </div>
-      <div>
-        <img src="../assets/coracao.png" alt="favoritos" />
-      </div>
-      <div>
-        <img src="../assets/cadeira.png" alt="lançamentos" />
-      </div>
-      <div>
-        <img src="../assets/foguete.png" alt="futuros-lançamentos" />
-      </div>
-      <div>
-        <img src="../assets/relogio.png" alt="assitri mais tarde" />
-      </div>
-      <div class="desc" v-if="mostrarDesc">
-        <div @click="clickHamburguer()">
-          <div class="x"></div>
-        </div>
+      <div v-else @click="clickHamburguer()" class="barTitle">
         <div>
-          
-          <p>aaaaaaa</p>
+          <div class="barra teto"></div>
+          <div class="barra"></div>
+          <div class="barra baixo"></div>
         </div>
-        <div>
-        <img src="../assets/coracao.png" alt="favoritos" />
       </div>
-      <div>
-        <img src="../assets/cadeira.png" alt="lançamentos" />
-      </div>
-      <div>
-        <img src="../assets/foguete.png" alt="futuros-lançamentos" />
-      </div>
-      <div>
-        <img src="../assets/relogio.png" alt="assitri mais tarde" />
-      </div>
-     
+      <div class="linha">
+        <div class="info-item">
+          <img src="../assets/populares.png" alt="populares" />
+          <p :class="mostrarDesc ? 'show' : 'hide'">Populares</p>
+        </div>
+
+        <div class="info-item">
+          <img src="../assets/coracao.png" alt="favoritos" />
+          <p :class="mostrarDesc ? 'show' : 'hide'">hsshf</p>
+        </div>
+
+        <div class="info-item">
+          <img src="../assets/cadeira.png" alt="lançamentos" />
+          <p :class="mostrarDesc ? 'show' : 'hide'">dbhfh</p>
+        </div>
+
+        <div class="info-item">
+          <img src="../assets/foguete.png" alt="futuros-lançamentos" />
+        </div>
+
+        <div class="info-item">
+          <img src="../assets/relogio.png" alt="assitri mais tarde" />
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <style scoped>
-button {
-  background-color: black;
-  border: none;
+.barTitle {
+  background-color: red;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.large {
+  width: 300px;
+}
+
+.small {
+  width: 100px;
+}
+
+.info-item {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
 }
 
 .desc {
   display: flex;
   background: rgb(17, 17, 17);
-  background: linear-gradient(
-    180deg,
-    rgba(17, 17, 17, 1) 49%,
-    rgba(0, 0, 0, 0.6306897759103641) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(17, 17, 17, 1) 49%,
+      rgba(0, 0, 0, 0.6306897759103641) 100%);
   flex-direction: column;
   position: fixed;
   left: 0vh;
   top: 0vh;
   width: 30%;
-  height: 100%;
-  /* flex-direction: column; */
+  height: 10%;
   padding: 5vh;
   align-content: space-around;
 }
@@ -97,6 +110,7 @@ nav {
   border-bottom: 5px solid white;
   padding: 0.7vh;
   border-radius: 3px;
+
 }
 
 .barra-lateral {
@@ -114,48 +128,53 @@ nav {
 #conteiner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-left: 20px;
   background-color: rgb(0, 0, 0);
   height: 100%;
   overflow: hidden;
-  /*border-right: 2px solid rgb(65, 65, 65);*/
 }
 
 #conteiner img {
-  margin: 2.5vh;
+
   width: 4vh;
 }
 
-.x{
-    width:40px;
-    height:40px;  
-    position:relative;
-    left: 35vh;
-    border-radius:6px;
-    cursor: pointer;
+.x {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.x:before, .x:after{
-    content:'';
-    position:absolute;
-    width:36px;
-    height:4px;
-    background-color:white;
-    border-radius:2px;
-    top:0vh;
-    
+.x:before,
+.x:after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 10px;
+  background-color: white;
+  border-radius: 2px;
 }
 
-.x:before{
-    -webkit-transform:rotate(45deg);
-    -moz-transform:rotate(45deg);
-    transform:rotate(45deg);
-    left:2px;
+.x:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: 2px;
 }
-.x:after{
-    -webkit-transform:rotate(-45deg);
-    -moz-transform:rotate(-45deg);
-    transform:rotate(-45deg);
-    right:2px;
+
+.x:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  right: 2px;
+}
+
+.linha {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: left;
 }
 </style>
