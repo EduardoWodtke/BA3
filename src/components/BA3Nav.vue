@@ -14,8 +14,8 @@ const clickHamburguer = () => {
   <nav>
     <div id="conteiner" :class="mostrarDesc ? 'large' : 'small'">
       <div v-if="mostrarDesc" @click="clickHamburguer()" class="barTitle">
-        <img src="../assets/BA3Lgo.png" alt="" />
-        <button>X</button>
+        <img style="width: 10vh;" src="../assets/BA3Lgo.png" alt="" />
+        <button class="butao">X</button>
       </div>
       <div v-else @click="clickHamburguer()" class="barTitle">
         <div>
@@ -54,13 +54,21 @@ const clickHamburguer = () => {
 
 <style scoped>
 .barTitle {
-  background-color: red;
   width: 100%;
   height: 100px;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 
+.butao{
+  width: 100px;
+  background-color: black;
+  font-size: 50px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 .show {
   display: block;
 }
