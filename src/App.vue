@@ -4,12 +4,16 @@ import footerBA from "./components/BA3Footer.vue";
 import navBA from "./components/BA3Nav.vue";
 import { ref, onMounted } from "vue";
 import api from "@/plugins/axios";
+import ListaFilmes from "./components/ListaFilmes.vue";
 
 const movies = ref([])
+const movies2 = ref([])
 
 onMounted(async () => {
-  const response = await api.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc');
+  let response = await api.get('https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&vote_average.gte=7');
   movies.value = response.data.results
+  response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&vote_average.gte=7');
+  movies2.value = response.data.results
 })
 </script>
 
@@ -19,18 +23,13 @@ onMounted(async () => {
   <main>
     <div id="imagem-estatica">
       <h1>Seja Bem vindo</h1>
-      <h2>Deixe rirem do seus sonhos!</h2>
+      <h2>Deixe rirem dos seus sonhos!</h2>
     </div>
-    <div class="Populares">
-      <h1>Populares,</h1>
-      <h2>Apenas os melhores!</h2>
-      <div id="popularesCartaz">
-        <div v-for="movie in movies" :key="movie.id" class="cartazDeMovie">
-          <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-          <p class="tituloDeMovie">{{ movie.title }}</p>
-        </div>
-      </div>
-    </div>
+    <ListaFilmes titulo="Populares" subtitulo="Os melhores" :movies="movies" />
+    <ListaFilmes titulo="Populares" subtitulo="Os piores"  :movies="movies2" />
+    <ListaFilmes titulo="Populares" subtitulo="Os mais ou menos"  :movies="movies" />
+    <ListaFilmes titulo="Em cartaz" subtitulo="Os novos"  :movies="movies" />
+
   </main>
   <footerBA />
 </template>
@@ -45,7 +44,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 1% 0 0 4%;
+  margin: 1% 0 0 5.5%;
 }
 
 #imagem-estatica {
@@ -62,50 +61,4 @@ main {
       rgba(0, 0, 0, 1) 100%);
 }
 
-#popularesCartaz {
-  display: flex;
-  flex-direction: row;
-  height: 30rem;
-  background: rgb(255, 0, 0);
-  background: linear-gradient(278deg,
-      rgb(255, 1, 1) 2%,
-      rgba(119, 15, 15, 0.631) 49%,
-      rgba(0, 0, 0, 1) 100%);
-  overflow-x: scroll;  
-  padding: 2vh;
-}
-
-#popularesCartaz::-webkit-scrollbar {
-  width: .5em;
-  height: .4em;
-}
- 
-#popularesCartaz::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
- 
-#popularesCartaz::-webkit-scrollbar-thumb {
-  background-color: rgb(0, 7, 105);
-  outline: 1px solid rgb(54, 54, 61);
-}
-
-.cartazDeMovie img {
-  margin: 0 .4vw;  
-  height: 380px;
-
-}
-
-.Populares h1{
-  font-size: 45px;
-}
-
-.Populares h2{
-  font-size: 30px;
-  padding: 1vh;
-}
-
-.Populares p {
-  font-size: 20px;
-  text-align: center;
-}
 </style>

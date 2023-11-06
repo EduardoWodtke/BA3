@@ -32,20 +32,23 @@ const clickHamburguer = () => {
 
         <div class="info-item">
           <img src="../assets/coracao.png" alt="favoritos" />
-          <p :class="mostrarDesc ? 'show' : 'hide'">hsshf</p>
+          <p :class="mostrarDesc ? 'show' : 'hide'">Favoritos</p>
         </div>
 
         <div class="info-item">
           <img src="../assets/cadeira.png" alt="lançamentos" />
-          <p :class="mostrarDesc ? 'show' : 'hide'">dbhfh</p>
+          <p :class="mostrarDesc ? 'show'
+            : 'hide'">Lançamentos</p>
         </div>
 
         <div class="info-item">
           <img src="../assets/foguete.png" alt="futuros-lançamentos" />
+          <p :class="mostrarDesc ? 'show' : 'hide'">Futuros Lançamentos</p>
         </div>
 
         <div class="info-item">
           <img src="../assets/relogio.png" alt="assitri mais tarde" />
+          <p :class="mostrarDesc ? 'show' : 'hide'">Assitir mais tarde</p>
         </div>
       </div>
     </div>
@@ -53,6 +56,10 @@ const clickHamburguer = () => {
 </template>
 
 <style scoped>
+.info-item p {
+  font-size: 20px;
+}
+
 .barTitle {
   width: 100%;
   height: 100px;
@@ -61,14 +68,15 @@ const clickHamburguer = () => {
   cursor: pointer;
 }
 
-.butao{
+.butao {
   width: 100px;
-  background-color: black;
+  background: none;
   font-size: 50px;
   color: white;
   border: none;
   cursor: pointer;
 }
+
 .show {
   display: block;
 }
@@ -89,27 +97,12 @@ const clickHamburguer = () => {
   display: flex;
   column-gap: 20px;
   align-items: center;
-}
-
-.desc {
-  display: flex;
-  background: rgb(17, 17, 17);
-  background: linear-gradient(180deg,
-      rgba(17, 17, 17, 1) 49%,
-      rgba(0, 0, 0, 0.6306897759103641) 100%);
-  flex-direction: column;
-  position: fixed;
-  left: 0vh;
-  top: 0vh;
-  width: 30%;
-  height: 10%;
-  padding: 5vh;
-  align-content: space-around;
+  padding: 0 10px 40px 0;
 }
 
 nav {
   width: 4%;
-  position: absolute;
+  position: fixed;
   top: 0;
 }
 
@@ -137,8 +130,9 @@ nav {
   display: flex;
   flex-direction: column;
   padding-left: 20px;
-  background-color: rgb(0, 0, 0);
-  height: 100%;
+  background: rgb(34, 35, 40);
+  background: linear-gradient(180deg, rgba(34, 35, 40, 1) 0%, rgba(42, 6, 68, 1) 28%, rgba(46, 0, 115, 1) 52%, rgba(14, 8, 159, 1) 75%, rgba(0, 18, 255, 0) 100%);
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -184,5 +178,6 @@ nav {
   flex-direction: column;
   row-gap: 20px;
   align-items: left;
+  padding: 10px;
 }
 </style>
