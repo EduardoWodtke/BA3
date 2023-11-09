@@ -8,12 +8,21 @@ import ListaFilmes from "./components/ListaFilmes.vue";
 
 const movies = ref([])
 const movies2 = ref([])
+const movies3 = ref([])
+const movies4 = ref([])
 
 onMounted(async () => {
-  let response = await api.get('https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&vote_average.gte=7');
+  let response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&vote_average.gte=7');
   movies.value = response.data.results
-  response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&vote_average.gte=7');
+  
+  response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&with_genres=16&vote_average.gte=7');
   movies2.value = response.data.results
+
+  response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=release_date.asc&include_adult=false&include_video=false&page=1&with_genres=16&primary_release_date.gte=2023-11-09');
+  movies3.value = response.data.results
+  
+  response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=16,10749&vote_average.gte=7');
+  movies4.value = response.data.results
 })
 </script>
 
@@ -26,9 +35,9 @@ onMounted(async () => {
       <h2>Deixe rirem dos seus sonhos!</h2>
     </div>
     <ListaFilmes titulo="Populares" subtitulo="Os melhores" :movies="movies" />
-    <ListaFilmes titulo="Populares" subtitulo="Os piores"  :movies="movies2" />
-    <ListaFilmes titulo="Populares" subtitulo="Os mais ou menos"  :movies="movies" />
-    <ListaFilmes titulo="Em cartaz" subtitulo="Os novos"  :movies="movies" />
+    <ListaFilmes titulo="Recentes" subtitulo="Filmes atuais"  :movies="movies2" />
+    <ListaFilmes titulo="Futuros laçamentos" subtitulo="Embreve em sua tela"  :movies="movies3" />
+    <ListaFilmes titulo="Romance" subtitulo="Paixão no ar"  :movies="movies4" />
 
   </main>
   <footerBA />
