@@ -9,7 +9,7 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
         <h2>{{ props.subtitulo }}</h2>
         <div id="popularesCartaz">
             <div v-for="movie in props.movies" :key="movie.id" class="cartazDeMovie">
-                <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
+                <img class="info-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
                 <p class="tituloDeMovie">{{ movie.title }}</p>
             </div>
         </div>
@@ -17,6 +17,11 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 </template>
 
 <style scoped>
+.info-filme:hover {
+    width: 50vh;
+    transition: 1s;
+}
+
 #popularesCartaz {
     display: flex;
     flex-direction: row;

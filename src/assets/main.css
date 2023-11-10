@@ -1,6 +1,8 @@
 @import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
 
 body{
   background-color: rgb(0, 0, 0);
   color:white;
 }
+
