@@ -1,12 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const mostrarCategorias = ref(false);
-
-const mostrarCategoriasHandler = () => {
-  mostrarCategorias.value = !mostrarCategorias.value;
-};
-
 const mostrarOpLogin = ref(false);
 
 const mostrarOp = () => {
@@ -17,29 +11,18 @@ const mostrarOp = () => {
 <template>
   <header>
     <div id="titulo">
-      <img src="../assets/BA3Lgo.png" alt="" />
+      <Router-Link to="/">
+        <img src="../assets/BA3Lgo.png" alt="" />
+      </Router-Link>
     </div>
     <div id="barra-nav" style="display: flex; justify-content: space-between;">
       <input type="text" v-model="nome" id="barra-pesquisa" placeholder="Pesquisar" />
-      <button @click="mostrarCategoriasHandler()">
+      <Router-Link to="/search" class="botaoSearch" @click="mostrarCategoriasHandler()">
         <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
-      </button>
-      <div id="topicos" style="margin-top: 10px;" v-if="mostrarCategorias">
-        <div id="categorias">
-          <h1>categorias</h1>
-          <p>Drama</p>
-          <p>Ação</p>
-          <p>Comédia</p>
-          <p>Fantasia</p>
-          <p>Aventura</p>
-        </div>
-        <div id="sugestoes">
-          <h1>Sugestoes</h1>
-        </div>
-      </div>
+      </Router-Link>
     </div>
     <div id="login">
-      <button @click="mostrarOp()">
+      <button class="botao" @click="mostrarOp()">
         <img src="../assets/perfil.jpg" alt="" />
       </button>
       <div class="opLogin" v-if="mostrarOpLogin">
@@ -57,10 +40,10 @@ const mostrarOp = () => {
   padding: 5px 10px 10px 10px
 }
 
-button{
-  background-color: black;
+.botao {
+  background-color: rgb(0, 0, 0);
   border: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 #sugestoes {
@@ -76,24 +59,10 @@ header {
   padding-top: 1vh;
 }
 
-#topicos {
-  display: flex;
-  flex-direction: row;
-  background: rgba(0, 0, 0, 0.945);
-  justify-content: space-around;
-  border-radius: 20px;
-  position: absolute;
-  top: 80%;
-  right: 0;
-  height: 30vh;
-  width: 95%;
-  color: rgb(90, 71, 255);
-  font-size: 2vh;
-  box-shadow: 10px 0px 12px rgb(0, 0, 0);
-}
 
 #titulo img {
   width: 100px;
+  cursor: pointer;
 }
 
 #login img {
@@ -106,16 +75,13 @@ header {
   margin-top: 20px;
 }
 
-#barra-nav {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 #barra-nav img {
   width: 30px;
 }
 
-#barra-nav button {
+.botaoSearch {
   background-color: rgb(25, 0, 255);
   text-decoration: none;
   border-radius: 0px 30px 30px 0px;

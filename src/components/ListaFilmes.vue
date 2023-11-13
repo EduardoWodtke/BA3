@@ -17,10 +17,10 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 </template>
 
 <style scoped>
-.info-filme:hover {
-    width: 50vh;
+/* .info-filme:hover {
+    width: 300vh;
     transition: 1s;
-}
+} */
 
 #popularesCartaz {
     display: flex;
