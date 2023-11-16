@@ -90,6 +90,7 @@ header {
   height: 45px;
   margin-top: 20px;
   cursor: pointer;
+  padding: 5px 0 0 5px;
 }
 
 #barra-nav button:hover {
