@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import api from "@/plugins/axios";
-import ListaFilmes from "../components/ListaFilmes.vue";
+import ListaFilmes from "../components/BA3ListaFilmes.vue";
 
 const movies = ref([])
 const movies2 = ref([])

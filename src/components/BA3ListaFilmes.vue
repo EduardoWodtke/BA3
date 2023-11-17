@@ -10,7 +10,7 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
         <div id="popularesCartaz">
             <div v-for="movie in props.movies" :key="movie.id" class="cartazDeMovie">
                 <img class="info-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-                <p class="tituloDeMovie">{{ movie.title }}</p>
+                <!-- <p class="tituloDeMovie">{{ movie.title }}</p> -->
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 #popularesCartaz {
     display: flex;
     flex-direction: row;
-    height: 32rem;
+    height: 25rem;
     background: rgb(92, 13, 172);
     background: linear-gradient(82deg, rgba(92, 13, 172, 1) 0%, rgba(46, 0, 115, 1) 47%, rgba(0, 18, 255, 0) 95%);
     overflow-x: scroll;
@@ -43,12 +43,12 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 
 #popularesCartaz::-webkit-scrollbar-thumb {
     background-color: rgb(0, 0, 0);
-    outline: 1px solid rgb(211, 209, 209);
+    outline: 1px solid rgb(24, 11, 71);
 }
 
 .cartazDeMovie img {
     margin: 0 .4vw;
-    height: 380px;
+    height: 350px;
 
 }
 

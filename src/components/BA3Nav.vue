@@ -14,7 +14,9 @@ const clickHamburguer = () => {
   <nav>
     <div id="conteiner" :class="mostrarDesc ? 'large' : 'small'">
       <div v-if="mostrarDesc" @click="clickHamburguer()" class="barTitle">
-        <img style="width: 10vh;" src="../assets/BA3Lgo.png" alt="" />
+        <Router-Link to="/">
+          <img src="../assets/BA3Lgo.png" alt="" />
+        </Router-Link>
         <button class="butao">X</button>
       </div>
       <div v-else @click="clickHamburguer()" class="barTitle">
@@ -56,6 +58,11 @@ const clickHamburguer = () => {
 </template>
 
 <style scoped>
+.barTitle img {
+  width: 10vh !important;
+  margin-top: 5px;
+}
+
 .info-item p {
   font-size: 20px;
 }
@@ -97,10 +104,10 @@ const clickHamburguer = () => {
   display: flex;
   column-gap: 20px;
   align-items: center;
-  padding: 0 10px 40px 0;
+  padding: 0 10px 70px 0;
 }
 
-  nav {
+nav {
   width: 4%;
   position: fixed;
   top: 0;
@@ -132,7 +139,7 @@ const clickHamburguer = () => {
   padding-left: 20px;
   background: rgb(34, 35, 40);
   background: linear-gradient(180deg, rgba(34, 35, 40, 1) 0%, rgba(42, 6, 68, 1) 28%, rgba(46, 0, 115, 1) 52%, rgba(14, 8, 159, 1) 75%, rgba(0, 18, 255, 0) 100%);
-  height: 95vh;
+  height: 100vh;
   overflow: hidden;
 }
 
