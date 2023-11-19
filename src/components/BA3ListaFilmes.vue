@@ -77,8 +77,8 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 }
 
 .popularesCartaz::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 0, 0);
-    outline: 1px solid rgb(24, 11, 71);
+    background-color: rgb(37, 37, 37);
+    outline: 1px solid rgb(15, 0, 0);
 }
 
 .Populares h1 {
