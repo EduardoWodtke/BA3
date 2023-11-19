@@ -18,7 +18,7 @@ onMounted(async () => {
   response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=release_date.asc&include_adult=false&include_video=false&page=1&with_genres=16&primary_release_date.gte=2023-11-09');
   movies3.value = response.data.results
   
-  response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=16,10749&vote_average.gte=7');
+  response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16,10749&vote_average.gte=7');
   movies4.value = response.data.results
 })
 

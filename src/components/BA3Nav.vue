@@ -26,7 +26,7 @@ const clickHamburguer = () => {
           <div class="barra baixo"></div>
         </div>
       </div>
-      <div class="linha">
+      <div class="coluna">
         <div class="info-item">
           <img src="../assets/populares.png" alt="populares" />
           <p :class="mostrarDesc ? 'show' : 'hide'">Populares</p>
@@ -180,7 +180,7 @@ nav {
   right: 2px;
 }
 
-.linha {
+.coluna {
   display: flex;
   flex-direction: column;
   row-gap: 20px;

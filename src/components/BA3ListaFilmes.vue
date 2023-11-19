@@ -7,22 +7,57 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
     <div class="Populares">
         <h1>{{ props.titulo }},</h1>
         <h2>{{ props.subtitulo }}</h2>
-        <div id="popularesCartaz">
+        <div class="popularesCartaz">
             <div v-for="movie in props.movies" :key="movie.id" class="cartazDeMovie">
-                <img class="info-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-                <!-- <p class="tituloDeMovie">{{ movie.title }}</p> -->
+                <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
+                <div class="middle">
+                    <div class="text">{{ movie.title }}</div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
-/* .info-filme:hover {
-    width: 300vh;
-    transition: 1s;
-} */
+.poster-filme:hover {
+    opacity: 0.3;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+}
 
-#popularesCartaz {
+.poster-filme {
+    margin: 0 .4vw;
+    height: 365px;
+    display: block;
+    opacity: 1;
+}
+
+.cartazDeMovie:hover .middle {
+  opacity: 1;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.cartazDeMovie:hover .poster-filme {
+  opacity: 0.3;
+}
+.text {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+.popularesCartaz {
     display: flex;
     flex-direction: row;
     height: 25rem;
@@ -32,24 +67,18 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
     padding: 2vh;
 }
 
-#popularesCartaz::-webkit-scrollbar {
+.popularesCartaz::-webkit-scrollbar {
     width: .5em;
     height: .6em;
 }
 
-#popularesCartaz::-webkit-scrollbar-track {
+.popularesCartaz::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-#popularesCartaz::-webkit-scrollbar-thumb {
+.popularesCartaz::-webkit-scrollbar-thumb {
     background-color: rgb(0, 0, 0);
     outline: 1px solid rgb(24, 11, 71);
-}
-
-.cartazDeMovie img {
-    margin: 0 .4vw;
-    height: 350px;
-
 }
 
 .Populares h1 {
@@ -59,10 +88,5 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 .Populares h2 {
     font-size: 30px;
     padding: 1vh;
-}
-
-.Populares p {
-    font-size: 20px;
-    text-align: center;
 }
 </style>
