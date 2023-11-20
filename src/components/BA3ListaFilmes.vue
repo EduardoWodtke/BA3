@@ -1,5 +1,4 @@
 <script setup>
-
 const props = defineProps(['movies', 'titulo', 'subtitulo'])
 </script>
 
@@ -9,9 +8,12 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
         <h2>{{ props.subtitulo }}</h2>
         <div class="popularesCartaz">
             <div v-for="movie in props.movies" :key="movie.id" class="cartazDeMovie">
-                <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-                <div class="middle">
-                    <div class="text">{{ movie.title }}</div>
+                <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="movie.title"  />
+                <div class="title">
+                    {{ movie.title }}
+                    <div class="info">
+                        {{ movie.overview }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,43 +26,44 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
     transition: 0.5s ease;
     backface-visibility: hidden;
 }
+.info{
+    padding: 5% 5% 0 0;
+    font-size: 15px;
+    text-align: center;
+}
+.title {
+  position: relative;
+  bottom: 100%;
+  display: none;
+  opacity: 1;
+  padding: 4% 0 0 4%;
+  font-size: 20px;
+}
+  
+.title:hover + div {
+  display: block;
+}
 
 .poster-filme {
     margin: 0 .4vw;
-    height: 365px;
+    height: 380px;
     display: block;
     opacity: 1;
 }
 
-.cartazDeMovie:hover .middle {
-  opacity: 1;
-}
-
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 100%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
+.cartazDeMovie:hover .title {
+    display: block;
+} 
 
 .cartazDeMovie:hover .poster-filme {
-  opacity: 0.3;
+    opacity: 0.3;
 }
-.text {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  font-size: 16px;
-  padding: 16px 32px;
-}
+
 
 .popularesCartaz {
     display: flex;
     flex-direction: row;
-    height: 25rem;
+    height: 27rem;
     background: rgb(92, 13, 172);
     background: linear-gradient(82deg, rgba(92, 13, 172, 1) 0%, rgba(46, 0, 115, 1) 47%, rgba(0, 18, 255, 0) 95%);
     overflow-x: scroll;

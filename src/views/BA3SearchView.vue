@@ -9,7 +9,7 @@ const movies = ref([]);
 
 
 async function buscarFilmes(search) {    
-    const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=fakse&language=pt-BR&page=1&with_genres=16&vote_average.gte=7_`;
+    const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1&with_genres=16&vote_average.gte=7_`;
     try {
         const response = await api.get(url);
         console.log(response)
@@ -67,25 +67,9 @@ onUpdated(() => {
   opacity: 1;
 }
 
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 100%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
 
 .cartazDeMovie:hover .poster-filme {
   opacity: 0.3;
-}
-.text {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  font-size: 16px;
-  padding: 16px 32px;
 }
 
 * {
