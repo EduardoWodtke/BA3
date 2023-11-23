@@ -7,6 +7,7 @@ const route = useRoute()
 
 const movies = ref([]);
 
+const mensagemErro = ('Sua pesquisa foi invalida tente outra')
 
 async function buscarFilmes(search) {    
     const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1&with_genres=16&vote_average.gte=7_`;
@@ -33,11 +34,11 @@ onUpdated(() => {
 
 <template>
     <main>
-        <div class="info-filmes">
+        <div class="popularesCartaz">
             <div class="cartazDeMovie" v-for="movie in movies" :key="movie.id">
                 <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
-                <div class="middle">
-                    <div class="text">{{ movie.title }}</div>
+                <div class="content">
+                    <div>{{ movie.title }}</div>
                 </div>
             </div>
         </div>
@@ -45,31 +46,46 @@ onUpdated(() => {
 </template>
 
 <style scoped>
-.info-filmes{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+
 .poster-filme:hover {
     opacity: 0.3;
     transition: 0.5s ease;
     backface-visibility: hidden;
 }
 
+.content {
+    position: relative;
+    bottom: 85%;
+    display: none;
+    opacity: 1;
+    padding: 4% 6% 0 6%;
+    font-size: 20px;
+}
+
+.content:hover+div {
+    display: block;
+}
+
 .poster-filme {
     margin: 0 .4vw;
-    height: 365px;
+    height: 380px;
     display: block;
     opacity: 1;
 }
 
-.cartazDeMovie:hover .middle {
-  opacity: 1;
+.cartazDeMovie:hover .content {
+    display: block;
 }
 
-
 .cartazDeMovie:hover .poster-filme {
-  opacity: 0.3;
+    opacity: 0.3;
+}
+
+.popularesCartaz {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2vh;
 }
 
 * {

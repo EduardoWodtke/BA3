@@ -3,11 +3,6 @@ import { ref} from 'vue';
 
 const mostrarOpLogin = ref(false);
 const search = ref('')
-// const router = useRouter();
-// const navegar = () => {
-//   router.push({name: 'search', query: { search: search.value } });
-// };
-
 const mostrarOp = () => {
   mostrarOpLogin.value = !mostrarOpLogin.value;
 };
@@ -22,7 +17,7 @@ const mostrarOp = () => {
     </div>
     <div id="barra-nav" style="display: flex; justify-content: space-between;">
       <input type="text" v-model="search" id="barra-pesquisa" placeholder="Pesquisar" />
-      <Router-Link   @keyup.enter="navegar" :to="{name: 'search', query: { search } }" class="botaoSearch">
+      <Router-Link :to="{name: 'search', query: { search } }" class="botaoSearch">
         <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
       </Router-Link>   
     </div>

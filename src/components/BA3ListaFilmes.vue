@@ -1,18 +1,32 @@
 <script setup>
-const props = defineProps(['movies', 'titulo', 'subtitulo'])
+import { defineProps, ref } from 'vue';
+
+const props = defineProps(['movies', 'titulo', 'subtitulo']);
+const maxLength = 200;
+const mensagemNada = ref('Mais informações em breve...');
+
+const getShortText = overview => {
+    if (overview.length > maxLength) {
+        return `${overview.substring(0, maxLength)}...`;
+    } else if (overview.length === 0) {
+        return mensagemNada.value;
+    } else {
+        return overview;
+    }
+};
 </script>
 
 <template>
     <div class="Populares">
-        <h1>{{ props.titulo }},</h1>
-        <h2>{{ props.subtitulo }}</h2>
+        <h1>{{ titulo }}</h1>
+        <h2>{{ subtitulo }}</h2>
         <div class="popularesCartaz">
-            <div v-for="movie in props.movies" :key="movie.id" class="cartazDeMovie">
-                <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="movie.title"  />
-                <div class="title">
-                    {{ movie.title }}
+            <div v-for="movie in movies" :key="movie.id" class="cartazDeMovie">
+                <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
+                <div class="content">
+                    <h3>{{ movie.title }}</h3>
                     <div class="info">
-                        {{ movie.overview }}
+                        <p>{{ getShortText(movie.overview) }}</p>
                     </div>
                 </div>
             </div>
@@ -26,22 +40,22 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
     transition: 0.5s ease;
     backface-visibility: hidden;
 }
-.info{
-    padding: 5% 5% 0 0;
+
+.info {
     font-size: 15px;
-    text-align: center;
 }
-.title {
-  position: relative;
-  bottom: 100%;
-  display: none;
-  opacity: 1;
-  padding: 4% 0 0 4%;
-  font-size: 20px;
+
+.content {
+    position: relative;
+    bottom: 100%;
+    display: none;
+    opacity: 1;
+    padding: 4% 6% 0 6%;
+    font-size: 20px;
 }
-  
-.title:hover + div {
-  display: block;
+
+.content:hover+div {
+    display: block;
 }
 
 .poster-filme {
@@ -51,9 +65,9 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
     opacity: 1;
 }
 
-.cartazDeMovie:hover .title {
+.cartazDeMovie:hover .content {
     display: block;
-} 
+}
 
 .cartazDeMovie:hover .poster-filme {
     opacity: 0.3;
@@ -72,7 +86,7 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 
 .popularesCartaz::-webkit-scrollbar {
     width: .5em;
-    height: .6em;
+    height: 0.6em;
 }
 
 .popularesCartaz::-webkit-scrollbar-track {
@@ -80,8 +94,9 @@ const props = defineProps(['movies', 'titulo', 'subtitulo'])
 }
 
 .popularesCartaz::-webkit-scrollbar-thumb {
-    background-color: rgb(37, 37, 37);
-    outline: 1px solid rgb(15, 0, 0);
+    background-color: rgb(88, 88, 88);
+    outline: 2px solid rgb(15, 0, 0);
+    border-radius: 0.2cm;
 }
 
 .Populares h1 {
