@@ -1,6 +1,8 @@
 <script setup>
 import { defineProps, ref } from 'vue';
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const props = defineProps(['movies', 'titulo', 'subtitulo']);
 const maxLength = 200;
 const mensagemNada = ref('Mais informações em breve...');
@@ -14,6 +16,10 @@ const getShortText = overview => {
         return overview;
     }
 };
+
+function openMovie(movieId) {
+  router.push({ name: 'info', params: { movieId } });
+}
 </script>
 
 <template>
@@ -22,7 +28,7 @@ const getShortText = overview => {
         <h2>{{ subtitulo }}</h2>
         <div class="popularesCartaz">
             <div v-for="movie in movies" :key="movie.id" class="cartazDeMovie">
-                <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
+                <router-link :to="`/info/${movie.id}`"> <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title"  @click="openMovie(movie.id)" /></router-link>
                 <div class="content">
                     <h3>{{ movie.title }}</h3>
                     <div class="info">

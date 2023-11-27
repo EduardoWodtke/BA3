@@ -1,11 +1,28 @@
 <script setup>
-import { ref} from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
 
 const mostrarOpLogin = ref(false);
 const search = ref('')
 const mostrarOp = () => {
   mostrarOpLogin.value = !mostrarOpLogin.value;
 };
+
+// const router = useRouter();
+
+// const handleKeyPress = (event) => {
+//   if (event.key === "Enter") {
+//     router.push('name: 'search', query: { search }');
+//   }
+// };
+
+// onMounted(() => {
+//   window.addEventListener('keypress', handleKeyPress);
+// });
+
+// onBeforeUnmount(() => {
+//   window.removeEventListener('keypress', handleKeyPress);
+// });
 </script>
 
 <template>
@@ -17,9 +34,11 @@ const mostrarOp = () => {
     </div>
     <div id="barra-nav" style="display: flex; justify-content: space-between;">
       <input type="text" v-model="search" id="barra-pesquisa" placeholder="Pesquisar" />
-      <Router-Link :to="{name: 'search', query: { search } }" class="botaoSearch">
-        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
-      </Router-Link>   
+      <!-- <button @keypress.enter="handleKeyPress"> -->
+        <Router-Link :to="{ name: 'search', query: { search } }" class="botaoSearch">
+          <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
+        </Router-Link>
+      <!-- </button> -->
     </div>
     <div id="login">
       <button class="botao" @click="mostrarOp()">

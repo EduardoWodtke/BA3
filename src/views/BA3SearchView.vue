@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUpdated } from 'vue';
+import { ref, onMounted, onUpdated, defineProps } from 'vue';
 import { useRoute } from 'vue-router'
 import api from '@/plugins/axios'
 
@@ -7,9 +7,7 @@ const route = useRoute()
 
 const movies = ref([]);
 
-const mensagemErro = ('Sua pesquisa foi invalida tente outra')
-
-async function buscarFilmes(search) {    
+async function buscarFilmes(search) {
     const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1&with_genres=16&vote_average.gte=7_`;
     try {
         const response = await api.get(url);
@@ -21,14 +19,27 @@ async function buscarFilmes(search) {
 }
 
 onMounted(() => {
-    const {search} = route.query
+    const { search } = route.query
     buscarFilmes(search)
 });
 onUpdated(() => {
-    const {search} = route.query
+    const { search } = route.query
     buscarFilmes(search)
 });
 
+const props = defineProps(['movies', 'titulo', 'subtitulo']);
+const maxLength = 200;
+const mensagemNada = ref('Mais informações em breve...');
+
+const getShortText = overview => {
+    if (overview.length > maxLength) {
+        return `${overview.substring(0, maxLength)}...`;
+    } else if (overview.length === 0) {
+        return mensagemNada.value;
+    } else {
+        return overview;
+    }
+};
 
 </script>
 
@@ -39,6 +50,9 @@ onUpdated(() => {
                 <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
                 <div class="content">
                     <div>{{ movie.title }}</div>
+                    <div class="info">
+                        <p>{{ getShortText(movie.overview) }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,6 +60,9 @@ onUpdated(() => {
 </template>
 
 <style scoped>
+.info {
+    font-size: 15px;
+}
 
 .poster-filme:hover {
     opacity: 0.3;
@@ -55,26 +72,28 @@ onUpdated(() => {
 
 .content {
     position: relative;
-    bottom: 85%;
+    bottom: 100%;
     display: none;
     opacity: 1;
-    padding: 4% 6% 0 6%;
     font-size: 20px;
+    width: 200px;
 }
 
-.content:hover+div {
-    display: block;
-}
 
 .poster-filme {
     margin: 0 .4vw;
-    height: 380px;
     display: block;
     opacity: 1;
+    height: 360px;
+}
+
+.cartazDeMovie:hover {
+    max-height: 360px;
 }
 
 .cartazDeMovie:hover .content {
     display: block;
+    
 }
 
 .cartazDeMovie:hover .poster-filme {
@@ -85,11 +104,9 @@ onUpdated(() => {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 2vh;
 }
 
 * {
     margin: 1% 0 0 5.5%;
 }
-
 </style>
