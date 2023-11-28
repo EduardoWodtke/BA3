@@ -45,6 +45,7 @@
   </footer>
 </template>
 <style scoped>
+
 #ba3 {
   display: flex;
   justify-content: center;

@@ -104,6 +104,7 @@ const getShortText = overview => {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 0 0 9.2vh 0;
 }
 
 * {
