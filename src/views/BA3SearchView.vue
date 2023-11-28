@@ -8,11 +8,11 @@ const route = useRoute()
 const movies = ref([]);
 
 async function buscarFilmes(search) {
-    const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1&with_genres=16&vote_average.gte=7_`;
+    const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1`;
     try {
         const response = await api.get(url);
         console.log(response)
-        movies.value = response.data.results;
+        movies.value = response.data.results.filter(movie => movie.genre_ids.includes(16));
     } catch (error) {
         console.error("Erro ao fazer a requisição: ", error);
     }
