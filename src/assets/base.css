@@ -79,8 +79,9 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "https://fonts.googleapis.com/css2?family=Agbalumo&family=Anton&display=swap";
 }

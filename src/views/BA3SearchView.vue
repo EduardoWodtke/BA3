@@ -45,7 +45,7 @@ const getShortText = overview => {
 
 <template>
     <main>
-        <div class="popularesCartaz">
+        <div class="filmesCartaz">
             <div class="cartazDeMovie" v-for="movie in movies" :key="movie.id">
                 <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
                 <div class="content">
@@ -72,19 +72,22 @@ const getShortText = overview => {
 
 .content {
     position: relative;
-    bottom: 100%;
+    bottom: 110%;
     display: none;
     opacity: 1;
-    font-size: 20px;
-    width: 200px;
+    font-size: 23px;
+    width: 240px;
+    right: 9%;
 }
 
-
 .poster-filme {
-    margin: 0 .4vw;
+    margin: 0 0 5vh 0;
     display: block;
     opacity: 1;
     height: 360px;
+    box-shadow: rgb(5, 3, 66) 7px 7px 7vh 1px;
+    border-radius: 5px;
+    border: solid rgb(12, 12, 88) 1px;
 }
 
 .cartazDeMovie:hover {
@@ -93,18 +96,18 @@ const getShortText = overview => {
 
 .cartazDeMovie:hover .content {
     display: block;
-    
+
 }
 
 .cartazDeMovie:hover .poster-filme {
     opacity: 0.3;
 }
 
-.popularesCartaz {
+.filmesCartaz {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 0 9.2vh 0;
+    margin: 0 0 3.93vh 0;
 }
 
 * {

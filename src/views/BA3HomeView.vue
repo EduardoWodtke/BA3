@@ -73,6 +73,5 @@ main {
   font-style: italic;
   font-size: 4vh;
   text-shadow: 6px 3px 5px black;
-  font-family: "https://fonts.googleapis.com/css2?family=Agbalumo&family=Anton&display=swap";
   }
 </style>

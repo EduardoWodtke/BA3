@@ -48,7 +48,7 @@ function openMovie(movieId) {
 }
 
 .info {
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .content {
@@ -57,7 +57,7 @@ function openMovie(movieId) {
     display: none;
     opacity: 1;
     padding: 4% 6% 0 6%;
-    font-size: 20px;
+    font-size: 23px;
 }
 
 .content:hover+div {
@@ -69,6 +69,7 @@ function openMovie(movieId) {
     height: 380px;
     display: block;
     opacity: 1;
+    border-radius: 5px;
 }
 
 .cartazDeMovie:hover .content {
@@ -106,7 +107,7 @@ function openMovie(movieId) {
 }
 
 .Populares h1 {
-    font-size: 45px;
+    font-size: 50px;
 }
 
 .Populares h2 {
