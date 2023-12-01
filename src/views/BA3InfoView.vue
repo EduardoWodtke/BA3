@@ -29,8 +29,8 @@ const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR')
 </script>
 
 <template>
-  <div class="conteiner">
-    <div v-for="movie in movies" :key="movie.id">
+  <div v-for="movie in movies" :key="movie.id">
+  <div class="conteinerInfo">
 
       <div class="container-movie">
         <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" width="300"
@@ -44,7 +44,7 @@ const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR')
 
       <div class="info">
         <div class="titulo">
-          <h1 class="title">{{ movie.title }}</h1>
+          <h1>{{ movie.title }}</h1>
         </div>
         <div class="sinopse">
           <h2>Sinopse</h2>
@@ -56,9 +56,11 @@ const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR')
 </template>
 
 <style scoped>
-.conteiner {
+.conteinerInfo {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  height: auto;
   margin: 1% 0 0 5.4%;
   padding: 1% 0 1% 1%;
   background: rgb(13, 27, 172);
@@ -72,19 +74,28 @@ const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR')
 }
 
 .movie-date-av {
-  padding: 1% 0 0 1%;
+  display: flex;
+  flex-direction: column;
+  padding: 1% 23% 0 0;
+  text-shadow: 5px 5px 10px black;
+  text-align: center;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  width: 70%;
+  margin-left: 1%;
+  width: 100vh;
+  text-shadow: 5px 5px 10px black;
+  line-height: auto;  
 }
 
+.sinopse{
+  max-width: 70%;
+}
 .poster-movie {
   border-radius: 3%;
-  width: 100%;
+  width: 75%;
 }
 
 </style>
