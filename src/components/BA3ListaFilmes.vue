@@ -18,7 +18,7 @@ const getShortText = overview => {
 };
 
 function openMovie(movieId) {
-  router.push({ name: 'info', params: { movieId } });
+    router.push({ name: 'info', params: { movieId } });
 }
 </script>
 
@@ -28,11 +28,17 @@ function openMovie(movieId) {
         <h2>{{ subtitulo }}</h2>
         <div class="popularesCartaz">
             <div v-for="movie in movies" :key="movie.id" class="cartazDeMovie">
-                <router-link :to="`/info/${movie.id}`"> <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title"  @click="openMovie(movie.id)" /></router-link>
+                <router-link :to="`/info/${movie.id}`"> <img class="poster-filme"
+                        :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title"
+                        @click="openMovie(movie.id)" /></router-link>
                 <div class="content">
-                    <h3>{{ movie.title }}</h3>
-                    <div class="info">
-                        <p>{{ getShortText(movie.overview) }}</p>
+                    <router-link :to="`/info/${movie.id}`">
+                        <h3>{{ movie.title }}</h3>
+                    </router-link>
+                    <div >
+                        <router-link class="info" :to="`/info/${movie.id}`">
+                            <p>{{ getShortText(movie.overview) }}</p>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -49,6 +55,8 @@ function openMovie(movieId) {
 
 .info {
     font-size: 18px;
+    color: white;
+    text-decoration: none;
 }
 
 .content {
@@ -58,8 +66,14 @@ function openMovie(movieId) {
     opacity: 1;
     padding: 4% 6% 0 6%;
     font-size: 23px;
+    text-decoration: none;
+    color: white;
 }
 
+.content h3{
+    color: white;
+    text-decoration: none;
+}
 .content:hover+div {
     display: block;
 }

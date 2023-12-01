@@ -49,9 +49,6 @@ onMounted(async () => {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   margin: 1% 0 0 5.5%;
 }
 

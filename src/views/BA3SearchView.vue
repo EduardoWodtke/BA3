@@ -81,7 +81,7 @@ const getShortText = overview => {
 }
 
 .poster-filme {
-    margin: 0 0 5vh 0;
+    margin: 0 0 32% 0;
     display: block;
     opacity: 1;
     height: 360px;

@@ -1,12 +1,20 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import debounce from 'lodash.debounce'
+
 
 const mostrarOpLogin = ref(false);
 const search = ref('')
 const mostrarOp = () => {
   mostrarOpLogin.value = !mostrarOpLogin.value;
 };
+const router = useRouter()
+
+watch(search, debounce(() => {
+    router.push({name: "search", query: { search: search.value } })
+}, 600))
+
 
 // const router = useRouter();
 
