@@ -47,7 +47,6 @@ const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR')
           <h1>{{ movie.title }}</h1>
         </div>
         <div class="sinopse">
-          <h2>Sinopse</h2>
           <p>{{ movie.overview }}</p>
         </div>
       </div>
@@ -56,6 +55,10 @@ const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR')
 </template>
 
 <style scoped>
+
+.titulo{
+  max-width: 70%;
+}
 .conteinerInfo {
   display: flex;
   flex-direction: row;
@@ -91,6 +94,7 @@ const formatDate = (date) => new Date(date).toLocaleDateString('pt-BR')
 }
 
 .sinopse{
+  margin-top: 5%;
   max-width: 70%;
 }
 .poster-movie {

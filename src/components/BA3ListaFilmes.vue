@@ -50,7 +50,8 @@ function openMovie(movieId) {
 .poster-filme:hover {
     opacity: 0.3;
     transition: 0.5s ease;
-    backface-visibility: hidden;
+    backface-visibility: hidden;    
+    
 }
 
 .info {
@@ -75,7 +76,8 @@ function openMovie(movieId) {
     text-decoration: none;
 }
 .content:hover+div {
-    display: block;
+    display: block;    
+
 }
 
 .poster-filme {

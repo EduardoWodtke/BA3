@@ -7,6 +7,16 @@ const route = useRoute()
 const movies = ref([]);
 const semFilme = ref('Filme não encontrado');
 
+// const getShortText = overview => {
+    // if (overview.length > maxLength) {
+        // return `${overview.substring(0, maxLength)}...`;
+    // } else if (overview.length === 0) {
+        // return semFilme.value;
+    // } else {
+        // return overview;
+    // }
+// };
+
 async function buscarFilmes(search) {
     const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1`;
     try {
@@ -14,7 +24,7 @@ async function buscarFilmes(search) {
         console.log(response)
         movies.value = response.data.results.filter(movie => movie.genre_ids.includes(16));
     } catch (error) {
-        console.error("Erro ao fazer a requisição: ", error);
+        return semFilme;
     }
 }
 
@@ -27,7 +37,7 @@ onUpdated(() => {
     buscarFilmes(search)
 });
 
-const props = defineProps(['movies', 'titulo', 'subtitulo']);
+// const props = defineProps(['movies', 'titulo', 'subtitulo']);
 const maxLength = 200;
 const mensagemNada = ref('Mais informações em breve...');
 
@@ -45,8 +55,17 @@ const getShortText = overview => {
 
 <template>
     <main>
-        <div class="filmesCartaz">
-            <div class="cartazDeMovie" v-for="movie in movies" :key="movie.id">
+        <div class="semFilme" v-if="movies.length == 0">
+            <h1>
+                Filme não encontrado
+            </h1>
+            <h2>
+                tente outro nome
+            </h2>
+            <img class="mensagemNaoEncontrado" src="../assets/patoDonald.png" alt="">
+        </div>
+        <div v-else class="filmesCartaz">
+            <div class="cartazDeMovie" v-for="movie in movies" :key="movie.id">            
                 <router-link :to="`/info/${movie.id}`"> <img class="poster-filme"
                         :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title"
                         @click="openMovie(movie.id)" /></router-link>
@@ -70,6 +89,17 @@ const getShortText = overview => {
     color: white;
     text-decoration: none;
     font-size: 20px;
+}
+
+.mensagemNaoEncontrado{
+    width: 40vh;
+}
+
+.semFilme{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 15%;
 }
 .info {
     font-size: 17px;
