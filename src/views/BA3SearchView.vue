@@ -4,8 +4,8 @@ import { useRoute } from 'vue-router'
 import api from '@/plugins/axios'
 
 const route = useRoute()
-
 const movies = ref([]);
+const semFilme = ref('Filme não encontrado');
 
 async function buscarFilmes(search) {
     const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1`;
@@ -47,11 +47,17 @@ const getShortText = overview => {
     <main>
         <div class="filmesCartaz">
             <div class="cartazDeMovie" v-for="movie in movies" :key="movie.id">
-                <img class="poster-filme" :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title" />
+                <router-link :to="`/info/${movie.id}`"> <img class="poster-filme"
+                        :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" :alt="movie.title"
+                        @click="openMovie(movie.id)" /></router-link>
                 <div class="content">
-                    <div>{{ movie.title }}</div>
-                    <div class="info">
-                        <p>{{ getShortText(movie.overview) }}</p>
+                    <router-link :to="`/info/${movie.id}`">
+                        <h3>{{ movie.title }}</h3>
+                    </router-link>
+                    <div>
+                        <router-link class="info" :to="`/info/${movie.id}`">
+                            <p>{{ getShortText(movie.overview) }}</p>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -60,8 +66,15 @@ const getShortText = overview => {
 </template>
 
 <style scoped>
+.content h3{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
 .info {
-    font-size: 15px;
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
 }
 
 .poster-filme:hover {
@@ -72,7 +85,7 @@ const getShortText = overview => {
 
 .content {
     position: relative;
-    bottom: 110%;
+    bottom: 140%;
     display: none;
     opacity: 1;
     font-size: 23px;
@@ -84,7 +97,7 @@ const getShortText = overview => {
     margin: 0 0 32% 0;
     display: block;
     opacity: 1;
-    height: 360px;
+    height: 380px;
     box-shadow: rgb(5, 3, 66) 7px 7px 7vh 1px;
     border-radius: 5px;
     border: solid rgb(12, 12, 88) 1px;
