@@ -1,21 +1,11 @@
 <script setup>
-import { ref, onMounted, onUpdated, defineProps } from 'vue';
+import { ref, onMounted, onUpdated } from 'vue';
 import { useRoute } from 'vue-router'
 import api from '@/plugins/axios'
 
 const route = useRoute()
 const movies = ref([]);
 const semFilme = ref('Filme não encontrado');
-
-// const getShortText = overview => {
-    // if (overview.length > maxLength) {
-        // return `${overview.substring(0, maxLength)}...`;
-    // } else if (overview.length === 0) {
-        // return semFilme.value;
-    // } else {
-        // return overview;
-    // }
-// };
 
 async function buscarFilmes(search) {
     const url = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=pt-BR&page=1`;
@@ -37,7 +27,6 @@ onUpdated(() => {
     buscarFilmes(search)
 });
 
-// const props = defineProps(['movies', 'titulo', 'subtitulo']);
 const maxLength = 200;
 const mensagemNada = ref('Mais informações em breve...');
 
