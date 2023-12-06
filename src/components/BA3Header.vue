@@ -1,36 +1,19 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import debounce from 'lodash.debounce'
 
 
-const mostrarOpLogin = ref(false);
 const search = ref('')
-const mostrarOp = () => {
-  mostrarOpLogin.value = !mostrarOpLogin.value;
-};
+
 const router = useRouter()
 
-watch(search, debounce(() => {
-    router.push({name: "search", query: { search: search.value } })
-}, 600))
-
-
-// const router = useRouter();
-
-// const handleKeyPress = (event) => {
-//   if (event.key === "Enter") {
-//     router.push('name: 'search', query: { search }');
-//   }
-// };
-
-// onMounted(() => {
-//   window.addEventListener('keypress', handleKeyPress);
-// });
-
-// onBeforeUnmount(() => {
-//   window.removeEventListener('keypress', handleKeyPress);
-// });
+watch(
+  search,
+  debounce(() => {
+    router.push({ name: 'search', query: { search: search.value } })
+  }, 600)
+)
 </script>
 
 <template>
@@ -40,52 +23,59 @@ watch(search, debounce(() => {
         <img src="../assets/BA3Lgo.png" alt="" />
       </Router-Link>
     </div>
-    <div id="barra-nav" style="display: flex; justify-content: space-between;">
+    <div id="barra-nav" style="display: flex; justify-content: space-between">
       <input type="text" v-model="search" id="barra-pesquisa" placeholder="Pesquisar" />
       <!-- <button @keypress.enter="handleKeyPress"> -->
-        <Router-Link :to="{ name: 'search', query: { search } }" class="botaoSearch">
-          <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
-        </Router-Link>
+      <Router-Link :to="{ name: 'search', query: { search } }" class="botaoSearch">
+        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
+      </Router-Link>
       <!-- </button> -->
     </div>
     <div id="login">
-      <button class="botao" @click="mostrarOp()">
-        <img src="../assets/perfil.jpg" alt="" />
-      </button>
-      <div class="opLogin" v-if="mostrarOpLogin">
-        <p>Editar perfil</p>
-        <p>Conta</p>
-        <p>Ajuda</p>
-        <p>Sair</p>
-      </div>
+      <router-link to="login">
+          <p class="botao">login</p>
+      </router-link>
+      <router-link to="sign">
+        <p class="botao">sign</p>
+      </router-link>
     </div>
   </header>
 </template>
 
 <style scoped>
-#categorias {
-  padding: 5px 10px 10px 10px
-}
-
 .botao {
+  text-align: center;
   background-color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
+  text-shadow: 3px 1px 4px black;
+  box-shadow: 7px 7px 20px blue;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  background: blue;
+  margin: 20px;
+}
+
+.botao:hover{
+  background: rgb(17, 17, 143);
+  transition: 1s;
 }
 
 #sugestoes {
-  padding: 5px 10px 10px 10px
+  padding: 5px 10px 10px 10px;
 }
 
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   background-color: rgb(0, 0, 0);
   position: sticky;
   top: 0%;
-  padding-top: 1vh;
+  margin: 0 1% 0 5.5%;
 }
-
 
 #titulo img {
   width: 100px;
@@ -99,10 +89,9 @@ header {
 }
 
 #login {
-  margin-top: 20px;
+  display: flex;
+  padding: 10px;
 }
-
-
 
 #barra-nav img {
   width: 30px;
@@ -115,7 +104,6 @@ header {
   border: none;
   width: 43px;
   height: 45px;
-  margin-top: 20px;
   cursor: pointer;
   padding: 5px 0 0 5px;
 }
@@ -129,24 +117,8 @@ header {
   width: 600px;
   height: 45px;
   border-radius: 30px 0px 0px 30px;
-  margin-top: 20px;
   background-color: rgb(255, 255, 255);
   font-size: 22px;
   padding: 0px 15px;
-}
-
-.opLogin {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 14.5vh;
-  background-color: rgb(28, 18, 161);
-  padding: 10px;
-  width: 14vh;
-  height: 16vh;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 30px 0px 30px 0px;
-  box-shadow: 4px 4px 10px rgb(0, 0, 0);
 }
 </style>
