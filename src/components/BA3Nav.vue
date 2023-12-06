@@ -28,29 +28,35 @@ const clickHamburguer = () => {
       </div>
       <div class="coluna">
         <div class="info-item">
-          <img src="../assets/populares.png" alt="populares" />
-          <p :class="mostrarDesc ? 'show' : 'hide'">Populares</p>
+        <router-link to="populares">
+            <img src="../assets/populares.png" alt="populares" />
+            <p :class="mostrarDesc ? 'show' : 'hide'">Populares</p>
+          </router-link>
         </div>
-
         <div class="info-item">
-          <img src="../assets/coracao.png" alt="favoritos" />
-          <p :class="mostrarDesc ? 'show' : 'hide'">Favoritos</p>
+            <router-link to="favoritos">
+            <img src="../assets/coracao.png" alt="favoritos" />
+            <p :class="mostrarDesc ? 'show' : 'hide'">Favoritos</p>
+          </router-link>
         </div>
-
         <div class="info-item">
-          <img src="../assets/cadeira.png" alt="lançamentos" />
-          <p :class="mostrarDesc ? 'show'
-            : 'hide'">Lançamentos</p>
+            <router-link to="lancamentos">
+            <img src="../assets/cadeira.png" alt="lançamentos" />
+            <p :class="mostrarDesc ? 'show'
+              : 'hide'">Lançamentos</p>
+        </router-link>
+      </div>
+      <div class="info-item">
+            <router-link to="futuros">
+            <img src="../assets/foguete.png" alt="futuros-lançamentos" />
+            <p :class="mostrarDesc ? 'show' : 'hide'">Futuros Lançamentos</p>
+          </router-link>
         </div>
-
         <div class="info-item">
-          <img src="../assets/foguete.png" alt="futuros-lançamentos" />
-          <p :class="mostrarDesc ? 'show' : 'hide'">Futuros Lançamentos</p>
-        </div>
-
-        <div class="info-item">
-          <img src="../assets/relogio.png" alt="assitri mais tarde" />
-          <p :class="mostrarDesc ? 'show' : 'hide'">Assitir mais tarde</p>
+            <router-link to="maisTarde">
+            <img src="../assets/relogio.png" alt="assitri mais tarde" />
+            <p :class="mostrarDesc ? 'show' : 'hide'">Assitir mais tarde</p>
+          </router-link>
         </div>
       </div>
     </div>
