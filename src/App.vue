@@ -18,6 +18,7 @@ router.afterEach(() => {
     showPreloader.value = false; // Ocultar o indicador de carregamento após a transição de página
   }, 1500); // Defina um tempo limite para garantir que o indicador seja visível por um curto período
 });
+
 </script>
 
 <template>
