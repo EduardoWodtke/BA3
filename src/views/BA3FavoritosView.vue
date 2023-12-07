@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue'
 import api from '@/plugins/axios'
 
-const genres = ref([])
 const movies = ref([]);
 const maxLength = 200;
 
@@ -17,21 +16,9 @@ const getShortText = overview => {
 };
 
 onMounted(async () => {
-    const response = await api.get('genre/movie/list?language=pt-BR&sort_by=popularity')
-    genres.value = response.data.genres
-    await listMovies(16);
+   let response = await api.get('https://api.themoviedb.org/3/discover/movie?language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16,10749&vote_average.gte=7');
+  movies.value = response.data.results
 })
-
-
-const listMovies = async (genreId) => {
-    const response = await api.get('discover/movie', {
-        params: {
-            with_genres: genreId,
-            language: 'pt-BR'
-        }
-    });
-    movies.value = response.data.results
-};
 
 function openMovie(movieId) {
     router.push({ name: 'info', params: { movieId } });
@@ -87,7 +74,7 @@ function openMovie(movieId) {
 
 .content {
     position: relative;
-    bottom: 52%;
+    bottom: 95%;
     display: none;
     opacity: 1;
     padding: 4% 6% 0 6%;
