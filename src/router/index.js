@@ -6,9 +6,8 @@ import lancamentos from '../views/BA3LancamentosView.vue'
 import futuros from '../views/BA3FuturosView.vue'
 import populares from '../views/BA3PopularesView.vue'
 import maisTarde from '../views/BA3MaisTardeView.vue'
-
-import sign from '../views/BA3signinview.vue'
 import login from '../views/BA3Loginview.vue'
+import signin from '../views/BA3signinview.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,7 +62,7 @@ const router = createRouter({
     {
       path: '/sign',
       name:'sign',
-      component: sign
+      component: signin
     },
     {
       path: '/login',

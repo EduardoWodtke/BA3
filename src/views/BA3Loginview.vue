@@ -1,18 +1,20 @@
 <template>
   <div class="login-container">
+    <img src="../assets/foto-login.png" alt="">
     <form @submit.prevent="loginUser" class="login-form">
       <input type="text" v-model="username" placeholder="Nome de Usuário ou Email" class="input-field" />
       <input type="password" v-model="password" placeholder="Senha" class="input-field" />
       <button type="submit" class="login-button">Login</button>
     </form>
     <p class="message">{{ message }}</p>
+    <img src="../assets/foto-login2.png" alt="">
   </div>
 </template>
 
 <style>
 .login-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -22,10 +24,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background: rgb(14, 14, 14);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -33,10 +34,13 @@
   width: 300px;
   height: 40px;
   margin: 10px 0;
+  border: none;
+  border-bottom:1px solid rgb(68, 68, 68);
   padding: 8px;
-  border: 1px solid #ccc;
+  background: rgb(14, 14, 14);
   border-radius: 5px;
   font-size: 16px;
+  color: white;
 }
 
 .login-button {

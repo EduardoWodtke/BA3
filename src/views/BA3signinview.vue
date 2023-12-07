@@ -1,9 +1,7 @@
 <template>
     <div class="wrapContainer">
+      <img src="../assets/foto-cadastro2.png" alt="">
       <div class="containerPrincipal">
-        <div class="logo">
-          <img src="@/assets/img/Main-img/CriarConta/Logo.png" alt="" width="130">
-        </div>
         <div class="forms">
           <form class="wrapForm" @submit.prevent="register">
             <div class="input-container">
@@ -28,6 +26,7 @@
           </div>
         </div>
       </div>
+      <img src="../assets/foto-cadastro.png" alt="">
     </div>
   </template>
   
@@ -35,10 +34,11 @@
   .input-container {
     position: relative;
     margin-top: 25px;
+    
   }
   .message-container {
     text-align: center;
-    color: #cc0000; 
+    color: #ffffff; 
     padding: 10px; 
     margin-top: 10px; 
     border-radius: 5px;
@@ -48,9 +48,12 @@
     width: 610px;
     height: 50px;
     padding: 15px;
-    border: 1px solid #43055D;
     transition: all 0.3s;
     font-size: 16px;
+    border: none;
+    border-bottom:1px solid rgb(68, 68, 68);
+    background: rgb(14, 14, 14);
+    color: white;
   }
   
   .labelForm {
@@ -82,7 +85,7 @@
   .containerPrincipal {
     width: 700px;
     height: 640px;
-    border: 1px solid black;
+    background-color: rgb(14, 14, 14);
   }
   
   .logo {
@@ -102,14 +105,15 @@
     width: 350px;
     height: 50px;
     border: none;
-    background-color: #43055D;
-    border: 1px solid black;
+    background-color: rgb(12, 6, 100);
     text-align: center;
-    color: #ffffff;
+    color: white;
+    text-shadow: 5px 5px 3px black;
     font-size: 18px;
     font-weight: bold;
     padding: 5px;
     margin-top: 80px;
+    border-radius: 5px;
   }
   
   .marginForm {

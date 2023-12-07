@@ -3,10 +3,12 @@ import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import debounce from 'lodash.debounce'
 
-
-const search = ref('')
+import { useAuthStore } from '@/stores/auth'
 
 const router = useRouter()
+const { isLoggedIn, username, login, logout } = useAuthStore()
+
+const search = ref('')
 
 watch(
   search,
@@ -19,24 +21,27 @@ watch(
 <template>
   <header>
     <div id="titulo">
-      <Router-Link to="/">
+      <router-link to="/">
         <img src="../assets/BA3Lgo.png" alt="" />
-      </Router-Link>
+      </router-link>
     </div>
     <div id="barra-nav" style="display: flex; justify-content: space-between">
       <input type="text" v-model="search" id="barra-pesquisa" placeholder="Pesquisar" />
-      <!-- <button @keypress.enter="handleKeyPress"> -->
       <Router-Link :to="{ name: 'search', query: { search } }" class="botaoSearch">
         <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="" />
       </Router-Link>
-      <!-- </button> -->
     </div>
-    <div id="login">
-      <router-link to="login">
-          <p class="botao">login</p>
+   
+    <div v-if="isLoggedIn">
+      <p>Bem-vindo, {{ username }}</p>
+      <button @click="logout">Logout</button>
+    </div>
+    <div v-else>
+      <router-link to="/login">
+        <p class="botao" @click="login">Login</p>
       </router-link>
-      <router-link to="sign">
-        <p class="botao">sign</p>
+      <router-link to="/sign">
+        <p class="botao">Sign In</p>
       </router-link>
     </div>
   </header>
@@ -58,7 +63,7 @@ watch(
   margin: 20px;
 }
 
-.botao:hover{
+.botao:hover {
   background: rgb(17, 17, 143);
   transition: 1s;
 }
@@ -74,7 +79,7 @@ header {
   background-color: rgb(0, 0, 0);
   position: sticky;
   top: 0%;
-  margin: 0 1% 0 5.5%;
+  margin: 0 0 0 5.5%;
 }
 
 #titulo img {
