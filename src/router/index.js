@@ -5,7 +5,6 @@ import favoritos from '../views/BA3FavoritosView.vue'
 import lancamentos from '../views/BA3LancamentosView.vue'
 import futuros from '../views/BA3FuturosView.vue'
 import populares from '../views/BA3PopularesView.vue'
-import maisTarde from '../views/BA3MaisTardeView.vue'
 import login from '../views/BA3Loginview.vue'
 import signin from '../views/BA3signinview.vue'
 
@@ -51,12 +50,6 @@ const router = createRouter({
       path: '/lancamentos',
       name: 'lancamentos',
       component: lancamentos,
-      props: true
-    },
-    {
-      path: '/maisTarde',
-      name: 'maisTarde',
-      component: maisTarde,
       props: true
     },
     {

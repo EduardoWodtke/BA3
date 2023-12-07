@@ -69,6 +69,7 @@ function openMovie(movieId) {
 </template>
 <style scoped>
 .cartazDeMovie:hover {
+    height: 380px;
     margin: 0 2vh 4vh 0;
 }
 .cartazDeMovie {

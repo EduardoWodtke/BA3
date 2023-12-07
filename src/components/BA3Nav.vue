@@ -52,12 +52,7 @@ const clickHamburguer = () => {
             <p :class="mostrarDesc ? 'show' : 'hide'">Futuros Lançamentos</p>
           </router-link>
         </div>
-        <div class="info-item">
-            <router-link to="maisTarde">
-            <img src="../assets/relogio.png" alt="assitri mais tarde" />
-            <p :class="mostrarDesc ? 'show' : 'hide'">Assitir mais tarde</p>
-          </router-link>
-        </div>
+      
       </div>
     </div>
   </nav>
@@ -71,6 +66,7 @@ const clickHamburguer = () => {
 
 .info-item p {
   font-size: 20px;
+  color: white;
 }
 
 .barTitle {
