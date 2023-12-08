@@ -4,7 +4,7 @@
     <form @submit.prevent="loginUser" class="login-form">
       <input type="text" v-model="username" placeholder="Nome de Usuário ou Email" class="input-field" />
       <input type="password" v-model="password" placeholder="Senha" class="input-field" />
-      <button type="submit" class="login-button">Login</button>
+      <button type="submit" class="login-button">Entrar</button>
     </form>
     <p class="message">{{ message }}</p>
     <img src="../assets/foto-login2.png" alt="">
@@ -44,15 +44,18 @@
 }
 
 .login-button {
-  width: 150px;
-  height: 40px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #43055D;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+  width: 350px;
+    height: 50px;
+    border: none;
+    background-color: rgb(12, 6, 100);
+    text-align: center;
+    color: white;
+    text-shadow: 5px 5px 3px black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 80px;
+    border-radius: 5px;
 }
 
 .login-button:hover {

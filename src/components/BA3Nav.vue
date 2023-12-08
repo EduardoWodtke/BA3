@@ -34,21 +34,21 @@ const clickHamburguer = () => {
           </router-link>
         </div>
         <div class="info-item">
-            <router-link to="favoritos">
+            <router-link to="romance">
             <img src="../assets/coracao.png" alt="romance" />
             <p :class="mostrarDesc ? 'show' : 'hide'">Romance</p>
           </router-link>
         </div>
         <div class="info-item">
-            <router-link to="lancamentos">
-            <img src="../assets/cadeira.png" alt="comedia" />
+            <router-link to="comedia">
+            <img style="width: 70px; margin-left: -13px;" src="../assets/comedia.png" alt="comedia" />
             <p :class="mostrarDesc ? 'show'
               : 'hide'">Comédia</p>
         </router-link>
       </div>
       <div class="info-item">
-            <router-link to="futuros">
-            <img src="../assets/foguete.png" alt="futuros-lançamentos" />
+            <router-link to="acao">
+            <img style="width: 70px; margin-left: -13px;" src="../assets/acao.png" alt="acao" />
             <p :class="mostrarDesc ? 'show' : 'hide'">Ação</p>
           </router-link>
         </div>

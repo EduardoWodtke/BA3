@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import home from '../views/BA3HomeView.vue'
 import search from '../views/BA3SearchView.vue'
-import favoritos from '../views/BA3FavoritosView.vue'
-import lancamentos from '../views/BA3LancamentosView.vue'
-import futuros from '../views/BA3FuturosView.vue'
+import romance from '../views/BA3RomanceView.vue'
+import comedia from '../views/BA3ComediaView.vue'
+import acao from '../views/BA3AçãoView.vue'
 import populares from '../views/BA3PopularesView.vue'
 import login from '../views/BA3Loginview.vue'
 import signin from '../views/BA3signinview.vue'
@@ -29,9 +29,9 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/favoritos',
-      name: 'favoritos',
-      component: favoritos,
+      path: '/romance',
+      name: 'romance',
+      component: romance,
       props: true
     },
     {
@@ -41,15 +41,15 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/futuros',
-      name: 'futuros',
-      component: futuros,
+      path: '/acao',
+      name: 'acao',
+      component: acao,
       props: true
     },
     {
-      path: '/lancamentos',
-      name: 'lancamentos',
-      component: lancamentos,
+      path: '/comedia',
+      name: 'comedia',
+      component: comedia,
       props: true
     },
     {
