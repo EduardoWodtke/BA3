@@ -26,8 +26,12 @@
 
       <div id="info-conta">
         <h1>Conta</h1>
-        <p>Login</p>
+        <router-link to="/login">
+        <p>Entrar</p>
+      </router-link>
+      <router-link to="/sign">
         <p>Cadastre-se</p>
+      </router-link>
       </div>
 
       <div id="termos">
@@ -45,6 +49,9 @@
   </footer>
 </template>
 <style scoped>
+#info-conta p{
+color: white;
+}
 
 #ba3 {
   display: flex;
